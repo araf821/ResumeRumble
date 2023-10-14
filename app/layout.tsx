@@ -1,9 +1,12 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Courier_Prime } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
+import Header from "@/components/ui/Header";
+import Providers from "@/components/Providers";
+import { Toaster } from "@/components/ui/toaster";
 
-const inter = Inter({ subsets: ["latin"] });
+const courier = Courier_Prime({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Resume Rumble",
@@ -18,7 +21,13 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={inter.className}>{children}</body>
+        <Providers>
+          <body className={courier.className}>
+            <Header />
+            <Toaster />
+            {children}
+          </body>
+        </Providers>
       </html>
     </ClerkProvider>
   );

@@ -4,11 +4,11 @@ import hamburgerIcon from "@/assets/hamburger.svg";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
-const Navbar = () => {
+const Header = () => {
   const path = usePathname();
 
   return (
-    <nav className="sticky top-0 flex h-[10dvh] bg-zinc-800">
+    <header className="sticky top-0 flex h-[10dvh] bg-zinc-800">
       <a
         className="my-auto ml-5 mr-auto text-3xl font-bold text-neutral-200"
         href="/"
@@ -52,8 +52,8 @@ const Navbar = () => {
         width={5}
         alt="pfp"
       ></Image>
-    </nav>
+    </header>
   );
 };
 
-export default Navbar;
+export default Header;
