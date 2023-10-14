@@ -9,14 +9,6 @@ type ResumeData = {
   file: string;
 };
 
-const resumes = [
-  {
-    name: "Johnny Donuts",
-    uploadDate: "00-00-00",
-    file: "https://example.com/johndoe_resume.pdf",
-  },
-];
-
 type DashboardProps = {
   resumes: ResumeData[]; // Define the type explicitly as an array of ResumeData
 };
@@ -37,6 +29,7 @@ const DashboardPage = () => {
       name: "Johnny Donuts",
       uploadDate: "00-00-00",
       file: "https://example.com/johndoe_resume.pdf",
+      isDefault: true,
     },
     {
       name: "Johnny Donuts",
@@ -83,10 +76,11 @@ const DashboardPage = () => {
                 name={resume.name}
                 uploadDate={resume.uploadDate}
                 file={resume.file}
+                isDefault={resume.isDefault}
               />
             ))}
             <Link
-              className="grid h-28 content-center justify-items-center rounded-xl border border-neutral-200 bg-zinc-800 px-5 py-5"
+              className="grid h-40 content-center justify-items-center rounded-xl border border-neutral-200 bg-zinc-800 px-5 py-5"
               href="\rating"
             >
               <Plus className="text-neutral-200" />
