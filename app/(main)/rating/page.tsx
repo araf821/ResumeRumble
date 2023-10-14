@@ -1,10 +1,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import Image from "next/image";
-import pdfIcon from "@/assets/pdf.svg";
+import { FileText } from "lucide-react";
 import FileUpload from "@/components/FileUpload";
 import PDFViewer from "@/components/PDFViewer";
 import {
@@ -14,7 +11,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-let submittedResume = true;
+let submittedResume = false;
 
 const Rating = () => {
   if (submittedResume) {
@@ -77,9 +74,7 @@ const Rating = () => {
           <div className="resume-sec w-full">
             <h2 className="text-neutral-200">your resume:</h2>
             <div className="grid w-full">
-              <div className="mx-auto my-10">
-                <Image src={pdfIcon} layout="fixed" alt="pdf" />
-              </div>
+              <FileText className="text-neutral-200" />
               <FileUpload />
               {/* <Input
               type="file"
