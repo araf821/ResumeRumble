@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { Courier_Prime } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import Header from "@/components/ui/Header";
+import Providers from "@/components/Providers";
+import { Toaster } from "@/components/ui/toaster";
 
 const courier = Courier_Prime({ weight: "400", subsets: ["latin"] });
 
@@ -19,10 +21,13 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={courier.className}>
-          <Header />
-          {children}
-        </body>
+        <Providers>
+          <body className={courier.className}>
+            <Header />
+            <Toaster />
+            {children}
+          </body>
+        </Providers>
       </html>
     </ClerkProvider>
   );

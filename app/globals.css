@@ -72,6 +72,7 @@
     @apply border-border;
   }
   body {
+    color-scheme: dark;
     @apply bg-zinc-900 text-foreground;
   }
 }
