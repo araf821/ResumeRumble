@@ -23,8 +23,8 @@ import { RefreshCcw } from "lucide-react";
 interface TestFormProps {}
 
 const formSchema = z.object({
-  fileUrl: z.string().min(3),
-  fileKey: z.string().min(3),
+  fileUrl: z.string().min(3, { message: "File is required." }),
+  fileKey: z.string().min(3, { message: "File is required." }),
   name: z.string(),
 });
 
