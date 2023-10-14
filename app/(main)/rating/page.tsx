@@ -8,7 +8,7 @@ const Rating = () => {
   return (
 	<div>
 		<div className="gradient header">
-			<h1>Resume Rating</h1>
+			<h1 className='text-xl'>Resume Rating</h1>
 			<p>get your resume rated!</p>
 		</div>
 		<div className="page body">
