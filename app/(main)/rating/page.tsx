@@ -1,7 +1,7 @@
-import React from "react";
+"use client";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { FileText } from "lucide-react";
+import FileUpload from "@/components/FileUpload";
 import PDFViewer from "@/components/PDFViewer";
 import {
   Accordion,
@@ -9,10 +9,18 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-
-let submittedResume = true;
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { useState } from "react";
 
 const Rating = () => {
+  var [submittedResume, setSubmittedResume] = useState(false);
+
   if (submittedResume) {
     return (
       //	<div className='grid grid-cols-1 md:grid-cols-2 text-white'>
@@ -23,9 +31,15 @@ const Rating = () => {
           </h1>
           <h2 className="text-lg">Are you cooking!?</h2>
         </div> */}
-        <div className="m-4 grid grid-cols-1 gap-2 text-white md:grid-cols-2">
-          <PDFViewer url="amongus" />
-          <Accordion type="single" collapsible className="w-full">
+        <div className="grid grid-cols-1 gap-5 text-white md:grid-cols-[33%_auto]">
+          <div className="rounded-xl bg-zinc-800 p-5">
+            <PDFViewer url="amongus" />
+          </div>
+          <Accordion
+            type="single"
+            collapsible
+            className="w-full rounded-xl bg-zinc-800 p-5 pb-8"
+          >
             <AccordionItem value="item-1">
               <AccordionTrigger>Grammar: 5/5</AccordionTrigger>
               <AccordionContent>
@@ -57,29 +71,46 @@ const Rating = () => {
             </AccordionItem>
           </Accordion>
         </div>
+        <Button
+          className="mt-5 w-full bg-sky-500"
+          onClick={() => setSubmittedResume(!submittedResume)}
+        >
+          rate another resume
+        </Button>
       </div>
     );
   } else {
     return (
       <>
-        <div className="page-body grid grid-cols-2 gap-5">
-          <div className="input-box w-full">
-            <h2 className="text-neutral-200">job posting:</h2>
+        <div className="page-body grid grid-cols-1 gap-5 md:grid-cols-2">
+          <div className="input-box w-full rounded-xl bg-zinc-800 p-5">
+            <h2 className="font-bold text-neutral-200">job posting:</h2>
             <Textarea
-              className="rounded-xl border border-neutral-200 bg-zinc-800 text-neutral-200"
+              className="h-[55dvh] resize-none rounded-xl border border-neutral-200 bg-zinc-800 text-neutral-200"
               placeholder="<Paste job description here. If you’re interested in general feedback, leave this empty.>"
             />
           </div>
-          <div className="resume-sec w-full">
-            <h2 className="text-neutral-200">your resume:</h2>
+          <div className="resume-sec w-full rounded-xl bg-zinc-800 p-5">
+            <h2 className="font-bold text-neutral-200">your resume:</h2>
             <div className="grid w-full">
-              <FileText className="text-neutral-200" />
-              {/* <Input
-              type="file"
-              className="w-full rounded-xl border border-neutral-200 bg-zinc-800 text-sky-500"
-            /> */}
+              <Select>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select resume or upload" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="upload">Upload</SelectItem>
+                  <SelectItem value="Resume 1">Resume 1</SelectItem>
+                  <SelectItem value="Resume 1 (1)">Resume 1 (1)</SelectItem>
+                </SelectContent>
+              </Select>
+              <FileUpload />
             </div>
-            <Button className="mt-5 w-full bg-sky-500">RATE IT BABY!!!</Button>
+            <Button
+              className="mt-5 w-full bg-sky-500"
+              onClick={() => setSubmittedResume(!submittedResume)}
+            >
+              RATE IT BABY!!!
+            </Button>
             <div className="submit button"></div>
           </div>
         </div>
