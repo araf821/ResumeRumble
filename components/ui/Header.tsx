@@ -8,7 +8,7 @@ const Header = () => {
   const path = usePathname();
 
   return (
-    <header className="flex h-[10dvh] bg-zinc-800">
+    <header className="sticky top-0 flex h-[10dvh] bg-zinc-800">
       <a
         className="my-auto ml-5 mr-auto text-3xl font-bold text-neutral-200"
         href="/"
