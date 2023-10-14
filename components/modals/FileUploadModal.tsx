@@ -66,7 +66,6 @@ const FileUploadModal: FC<FileUploadModalProps> = () => {
 
   return (
     <Dialog open={isModalOpen} onOpenChange={onClose}>
-      <DialogClose>asdf</DialogClose>
       <DialogContent className="border-zinc-800 bg-zinc-900 text-zinc-100 shadow-blue-600/10">
         <div className="mx-auto flex w-full max-w-3xl flex-col px-4 text-zinc-100">
           <Form {...form}>
