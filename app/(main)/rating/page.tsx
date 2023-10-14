@@ -1,7 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import FileUpload from "@/components/FileUpload";
 import PDFViewer from "@/components/PDFViewer";
 import {
   Accordion,
@@ -17,6 +16,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useState } from "react";
+import AddFileCard from "@/components/AddFileCard";
 
 const Rating = () => {
   var [submittedResume, setSubmittedResume] = useState(false);
@@ -94,7 +94,7 @@ const Rating = () => {
             <h2 className="font-bold text-neutral-200">your resume:</h2>
             <div className="grid w-full">
               <Select>
-                <SelectTrigger className="w-full">
+                <SelectTrigger className="mb-5 w-full text-zinc-800">
                   <SelectValue placeholder="Select resume or upload" />
                 </SelectTrigger>
                 <SelectContent>
@@ -103,7 +103,7 @@ const Rating = () => {
                   <SelectItem value="Resume 1 (1)">Resume 1 (1)</SelectItem>
                 </SelectContent>
               </Select>
-              <FileUpload />
+              <AddFileCard />
             </div>
             <Button
               className="mt-5 w-full bg-sky-500"
