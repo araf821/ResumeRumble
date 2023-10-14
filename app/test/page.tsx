@@ -1,11 +1,9 @@
+import AddFileCard from "@/components/AddFileCard";
 import PDFViewer from "@/components/PDFViewer";
 import TestForm from "@/components/TestForm";
 import { db } from "@/lib/db";
-import { FC } from "react";
 
-interface pageProps {}
-
-const page: FC<pageProps> = async ({}) => {
+const page = async () => {
   const file = await db.file.findFirst({
     select: {
       fileKey: true,
@@ -17,12 +15,13 @@ const page: FC<pageProps> = async ({}) => {
   return (
     <div className="py-12">
       {/* <TestForm /> */}
-      <TestForm />
+      {/* <TestForm />
       {file && (
-          <PDFViewer
-            url={`https://uploadthing-prod.s3.us-west-2.amazonaws.com/${file.fileKey}`}
-          />
-      )}
+        <PDFViewer
+          url={`https://uploadthing-prod.s3.us-west-2.amazonaws.com/${file.fileKey}`}
+        />
+      )} */}
+      <AddFileCard/>
     </div>
   );
 };
