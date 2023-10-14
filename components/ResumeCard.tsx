@@ -13,7 +13,7 @@ function ResumeCard({
   isDefault?: boolean;
 }) {
   return (
-    <div className="resume-card group h-40 overflow-clip rounded-xl border border-neutral-200 bg-zinc-800 px-5 py-5">
+    <div className="resume-card group flex h-40 flex-col overflow-clip rounded-xl border border-neutral-200 bg-zinc-800 px-5 py-5">
       <h1 className="text-neutral-200">{name}</h1>
       <div className="upload-date text-neutral-200">{uploadDate}</div>
       <Link
