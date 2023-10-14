@@ -59,8 +59,8 @@ const DashboardPage = () => {
       <div className="grid grid-cols-1 gap-5 md:grid-cols-[33%_auto]">
         <div className="flex h-[70dvh] flex-col justify-center rounded-xl bg-zinc-800">
           <CircleDashed className="h-full w-full p-20 pb-10 text-neutral-200" />
-          <div className="mt-auto grid grid-cols-1 gap-2 md:grid-cols-[auto_min-content]">
-            <div className="ml-5">
+          <div className="mt-auto grid grid-cols-1 gap-2 pl-5 md:grid-cols-[auto_min-content]">
+            <div className="">
               <h1 className="text-md text-neutral-200">
                 You are logged in as:{" "}
               </h1>
