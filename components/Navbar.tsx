@@ -18,6 +18,8 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 
+let isLoggedin = false
+
 const Navbar = () => {
   const path = usePathname();
 
@@ -73,7 +75,7 @@ const Navbar = () => {
             <SheetClose asChild>
 
             <Link
-              href="/rating"
+              href="/dashboard"
               className=" mt-5 w-full rounded-sm bg-blue-500 py-2.5 text-center text-lg font-semibold text-white hover:text-zinc-800  hover:bg-zinc-50"
             >
               Dashboard
@@ -103,7 +105,7 @@ const Navbar = () => {
             <SheetClose asChild>
 
             <Link
-              href="/rating"
+              href="/ranking"
               className=" mt-5 w-full rounded-sm bg-blue-500 py-2.5 text-center text-lg font-semibold text-white hover:text-zinc-800  hover:bg-zinc-50"
             >
               Ranking
@@ -111,9 +113,26 @@ const Navbar = () => {
             </SheetClose>
           
           </div>  
-           
+          
         </div>
+        
       
+           <hr className="w-full border-zinc-50" />
+           <div
+            onClick={() => close()}
+            className="order-last flex flex-col items-center gap-4"
+          >
+            <SheetClose asChild>
+
+            <Link
+              href="/ranking"
+              className=" mt-5 w-full rounded-sm bg-blue-500 py-2.5 text-center text-lg font-semibold text-white hover:text-zinc-800  hover:bg-zinc-50"
+            >
+              Ranking
+            </Link>
+            </SheetClose>
+          
+          </div>  
         
       </SheetContent>
     </Sheet>
