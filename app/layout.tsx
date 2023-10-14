@@ -2,7 +2,6 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Courier_Prime } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
-import Header from "@/components/ui/Header";
 import Providers from "@/components/Providers";
 import { Toaster } from "@/components/ui/toaster";
 
@@ -23,7 +22,6 @@ export default function RootLayout({
       <html lang="en">
         <Providers>
           <body className={courier.className}>
-            <Header />
             <Toaster />
             {children}
           </body>
