@@ -16,8 +16,10 @@ const FileUpload: FC<FileUploadProps> = ({ onChange, value }) => {
 
   return (
     <UploadDropzone
+
       className="h-full w-full bg-zinc-800"
       endpoint="pdf"
+      
       onClientUploadComplete={(res) => {
         onChange(res?.[0].url);
       }}
