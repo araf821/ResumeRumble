@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import ResumeCard from "@/components/ResumeCard";
 import { CircleDashed, Plus } from "lucide-react";
+import Link from "next/link";
 
 type ResumeData = {
   name: string;
@@ -75,7 +76,7 @@ const DashboardPage = () => {
           <h2 className="pb-2 text-xl font-bold text-neutral-200">
             your resumes:
           </h2>
-          <div className="grid-col-1 grid h-[60dvh] gap-3 overflow-hidden overflow-y-scroll md:grid-cols-2">
+          <div className="grid-col-1 grid h-[60dvh] gap-3 overflow-hidden overflow-y-scroll pb-5 md:grid-cols-2">
             {resumes.map((resume, index) => (
               <ResumeCard
                 key={index}
@@ -84,9 +85,12 @@ const DashboardPage = () => {
                 file={resume.file}
               />
             ))}
-            <div className="grid h-28 content-center justify-items-center rounded-xl border border-neutral-200 bg-zinc-800 px-5 py-5">
+            <Link
+              className="grid h-28 content-center justify-items-center rounded-xl border border-neutral-200 bg-zinc-800 px-5 py-5"
+              href="\rating"
+            >
               <Plus className="text-neutral-200" />
-            </div>
+            </Link>
           </div>
         </div>
       </div>
