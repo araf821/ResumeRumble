@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Courier_Prime } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
+import Header from "@/components/ui/Header";
 
 const courier = Courier_Prime({ weight: "400", subsets: ["latin"] });
 
@@ -19,7 +20,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={courier.className}>
-          <header className="h-[10dvh] bg-zinc-800"></header>
+          <Header />
           {children}
         </body>
       </html>
