@@ -20,7 +20,7 @@ const lobbyData = [
 
 const RankingPage = () => {
   return (
-    <div>
+    <div className="h-[60dvh] overflow-y-scroll">
       {lobbyData.map((data, index) => (
         <LobbyItem key={index} name={data.name}></LobbyItem>
       ))}

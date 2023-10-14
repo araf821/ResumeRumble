@@ -9,12 +9,14 @@ const LobbyItem = ({
   url?: string;
 }) => {
   return (
-    <div className="mx-8 my-5 flex overflow-clip rounded-xl border border-neutral-200 bg-zinc-800 px-5 py-5">
-      <p className="my-auto font-bold text-neutral-200">{name}</p>
+    <div className="my-5">
+      <div className="flex overflow-clip rounded-xl border border-neutral-200 bg-zinc-800 px-5 py-5">
+        <p className="my-auto font-bold text-neutral-200">{name}</p>
 
-      <a className="my-auto ml-auto" href={url}>
-        <Image className="" src={enterIcon} width={25} alt="enter"></Image>
-      </a>
+        <a className="my-auto ml-auto" href={url}>
+          <Image className="" src={enterIcon} width={25} alt="enter"></Image>
+        </a>
+      </div>
     </div>
   );
 };
