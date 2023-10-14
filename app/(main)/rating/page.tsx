@@ -16,10 +16,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-
-let submittedResume = false;
+import { useState } from "react";
 
 const Rating = () => {
+  var [submittedResume, setSubmittedResume] = useState(false);
+
   if (submittedResume) {
     return (
       //	<div className='grid grid-cols-1 md:grid-cols-2 text-white'>
@@ -30,9 +31,15 @@ const Rating = () => {
           </h1>
           <h2 className="text-lg">Are you cooking!?</h2>
         </div> */}
-        <div className="m-4 grid grid-cols-1 gap-2 text-white md:grid-cols-2">
-          <PDFViewer url="amongus" />
-          <Accordion type="single" collapsible className="w-full">
+        <div className="grid grid-cols-1 gap-5 text-white md:grid-cols-[33%_auto]">
+          <div className="rounded-xl bg-zinc-800 p-5">
+            <PDFViewer url="amongus" />
+          </div>
+          <Accordion
+            type="single"
+            collapsible
+            className="w-full rounded-xl bg-zinc-800 p-5"
+          >
             <AccordionItem value="item-1">
               <AccordionTrigger>Grammar: 5/5</AccordionTrigger>
               <AccordionContent>
@@ -64,6 +71,12 @@ const Rating = () => {
             </AccordionItem>
           </Accordion>
         </div>
+        <Button
+          className="mt-5 w-full bg-sky-500"
+          onClick={() => setSubmittedResume(!submittedResume)}
+        >
+          rate another resume
+        </Button>
       </div>
     );
   } else {
@@ -92,7 +105,12 @@ const Rating = () => {
               </Select>
               <FileUpload />
             </div>
-            <Button className="mt-5 w-full bg-sky-500">RATE IT BABY!!!</Button>
+            <Button
+              className="mt-5 w-full bg-sky-500"
+              onClick={() => setSubmittedResume(!submittedResume)}
+            >
+              RATE IT BABY!!!
+            </Button>
             <div className="submit button"></div>
           </div>
         </div>
