@@ -1,57 +1,50 @@
 "use client";
-import circleIcon from "@/assets/circle.svg";
-import hamburgerIcon from "@/assets/hamburger.svg";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { Menu } from "lucide-react";
+import { CircleDashed } from "lucide-react";
+import Link from "next/link";
 
 const Navbar = () => {
   const path = usePathname();
 
   return (
-    <nav className="sticky top-0 flex h-[10dvh] bg-zinc-800">
-      <a
+    <nav className="sticky top-0 flex h-[8dvh] bg-zinc-800">
+      <Link
         className="my-auto ml-5 mr-auto text-3xl font-bold text-neutral-200"
         href="/"
       >
         RR
-      </a>
+      </Link>
       <div className="my-auto ml-auto mr-10 hidden space-x-10 md:flex">
-        <a
+        <Link
           className="text-lg text-neutral-200 active:underline"
           style={path === "/dashboard" ? { textDecoration: "underline" } : {}}
           href="/dashboard"
         >
           dashboard
-        </a>
-        <a
+        </Link>
+        <Link
           className="text-lg text-neutral-200 active:underline"
           style={path === "/rating" ? { textDecoration: "underline" } : {}}
           href="/rating"
         >
           rating
-        </a>
-        <a
+        </Link>
+        <Link
           className="text-lg text-neutral-200 active:underline"
           style={path === "/ranking" ? { textDecoration: "underline" } : {}}
           href="/ranking"
         >
           ranking
-        </a>
+        </Link>
       </div>
       <div className="my-auto ml-auto mr-5 space-x-10 md:hidden">
-        <Image
-          className="w-[7.5dvh]"
-          src={hamburgerIcon}
-          width={5}
-          alt="menu"
-        ></Image>
+        <Menu className="text-neutral-200" />
       </div>
-      <Image
-        className="my-auto mr-5 hidden w-[7.5dvh] md:block"
-        src={circleIcon}
-        width={5}
-        alt="pfp"
-      ></Image>
+      <CircleDashed
+        className="my-auto mr-5 hidden h-auto w-[5dvh] text-neutral-200 md:block"
+        size={50}
+      />
     </nav>
   );
 };

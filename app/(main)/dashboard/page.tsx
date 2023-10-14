@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import ResumeCard from "@/components/ResumeCard";
-import Image from "next/image";
-import circleIcon from "@/assets/circle.svg";
+import { CircleDashed, Plus } from "lucide-react";
 
 type ResumeData = {
   name: string;
@@ -53,36 +52,15 @@ const DashboardPage = () => {
       uploadDate: "00-00-00",
       file: "https://example.com/johndoe_resume.pdf",
     },
-    {
-      name: "Johnny Donuts",
-      uploadDate: "00-00-00",
-      file: "https://example.com/johndoe_resume.pdf",
-    },
   ];
 
   return (
-    <div className="px-8 py-5">
-      <h1 className="text-4xl text-neutral-200">
-        Welcome to <span className="font-bold text-sky-500">Resume Rumble</span>
-      </h1>
-      <div className="mx-5 grid grid-cols-1 gap-2 pb-5 md:grid-cols-3">
-        <Button className="bg-sky-500">Rating</Button>
-        <Button className="bg-sky-500">Ranking</Button>
-        <Button className="bg-sky-500">Leaderboards</Button>
-      </div>
-
-      <div className="mx-5 grid h-[70dvh] grid-cols-1 gap-2 md:grid-cols-2">
-        <div className="flex flex-col justify-center">
-          <div className="mx-auto mb-auto max-w-[50dvh] pb-10">
-            <Image
-              className=""
-              src={circleIcon}
-              layout="fixed"
-              alt="pfp"
-            ></Image>
-          </div>
+    <div className="">
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-[33%_auto]">
+        <div className="flex h-[70dvh] flex-col justify-center rounded-xl bg-zinc-800">
+          <CircleDashed className="h-full w-full p-20 pb-10 text-neutral-200" />
           <div className="mt-auto grid grid-cols-1 gap-2 md:grid-cols-[auto_min-content]">
-            <div className="">
+            <div className="ml-5">
               <h1 className="text-md text-neutral-200">
                 You are logged in as:{" "}
               </h1>
@@ -94,9 +72,11 @@ const DashboardPage = () => {
           </div>
         </div>
 
-        <div className="resumes h-[70dvh] pb-10">
-          <h2 className="text-xl font-bold text-neutral-200">your resumes:</h2>
-          <div className="grid-col-1 grid h-full gap-3 overflow-hidden overflow-y-scroll pb-5 md:grid-cols-2">
+        <div className="resumes h-[70dvh] rounded-xl bg-zinc-800 p-5">
+          <h2 className="pb-2 text-xl font-bold text-neutral-200">
+            your resumes:
+          </h2>
+          <div className="grid-col-1 grid h-[60dvh] gap-3 overflow-hidden overflow-y-scroll md:grid-cols-2">
             {resumes.map((resume, index) => (
               <ResumeCard
                 key={index}
@@ -105,6 +85,9 @@ const DashboardPage = () => {
                 file={resume.file}
               />
             ))}
+            <div className="grid h-28 content-center justify-items-center rounded-xl border border-neutral-200 bg-zinc-800 px-5 py-5">
+              <Plus className="text-neutral-200" />
+            </div>
           </div>
         </div>
       </div>
