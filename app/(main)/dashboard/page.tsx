@@ -71,9 +71,9 @@ const DashboardPage = () => {
         <Button className="bg-sky-500">Leaderboards</Button>
       </div>
 
-      <div className="mx-5 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-2">
-        <div className="flex max-h-[60dvh] flex-col">
-          <div className="mx-auto mb-auto max-h-[40dvh] max-w-xs pb-10 md:h-auto">
+      <div className="mx-5 grid h-[70dvh] grid-cols-1 gap-2 md:grid-cols-2">
+        <div className="flex flex-col justify-center">
+          <div className="mx-auto mb-auto max-w-[50dvh] pb-10">
             <Image
               className=""
               src={circleIcon}
@@ -83,10 +83,10 @@ const DashboardPage = () => {
           </div>
           <div className="mt-auto grid grid-cols-1 gap-2 md:grid-cols-[auto_min-content]">
             <div className="">
-              <h1 className="text-lg text-neutral-200">
+              <h1 className="text-md text-neutral-200">
                 You are logged in as:{" "}
               </h1>
-              <p className="text-neutral-200">FirstName LastName</p>
+              <p className="text-lg text-neutral-200">FirstName LastName</p>
             </div>
             <Button className="mb-5 mt-auto w-fit bg-sky-500 md:ml-auto md:mr-5">
               Logout
@@ -94,10 +94,8 @@ const DashboardPage = () => {
           </div>
         </div>
 
-        <div className="resumes h-[60dvh]">
-          <h2 className="pb-2 text-xl font-bold text-neutral-200">
-            your resumes:
-          </h2>
+        <div className="resumes h-[70dvh] pb-10">
+          <h2 className="text-xl font-bold text-neutral-200">your resumes:</h2>
           <div className="grid-col-1 grid h-full gap-3 overflow-hidden overflow-y-scroll pb-5 md:grid-cols-2">
             {resumes.map((resume, index) => (
               <ResumeCard
