@@ -11,7 +11,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-let submittedResume = false;
+let submittedResume = true;
 
 const Rating = () => {
   if (submittedResume) {
