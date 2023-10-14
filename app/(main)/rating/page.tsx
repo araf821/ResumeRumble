@@ -2,7 +2,6 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { FileText } from "lucide-react";
-import FileUpload from "@/components/FileUpload";
 import PDFViewer from "@/components/PDFViewer";
 import {
   Accordion,
@@ -75,7 +74,6 @@ const Rating = () => {
             <h2 className="text-neutral-200">your resume:</h2>
             <div className="grid w-full">
               <FileText className="text-neutral-200" />
-              <FileUpload />
               {/* <Input
               type="file"
               className="w-full rounded-xl border border-neutral-200 bg-zinc-800 text-sky-500"
