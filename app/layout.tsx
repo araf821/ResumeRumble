@@ -2,9 +2,9 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Courier_Prime } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
-import Header from "@/components/ui/Header";
 import Providers from "@/components/Providers";
 import { Toaster } from "@/components/ui/toaster";
+import ModalProvider from "@/components/modals/ModalProvider";
 
 const courier = Courier_Prime({ weight: "400", subsets: ["latin"] });
 
@@ -23,7 +23,7 @@ export default function RootLayout({
       <html lang="en">
         <Providers>
           <body className={courier.className}>
-            <Header />
+            <ModalProvider />
             <Toaster />
             {children}
           </body>

@@ -1,6 +1,9 @@
+import Navbar from "@/components/Navbar";
+
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="grid h-[90dvh] w-screen place-items-center bg-zinc-900">
+    <div className="h-[90dvh] mt-14 w-screen">
+      <Navbar />
       {children}
     </div>
   );
