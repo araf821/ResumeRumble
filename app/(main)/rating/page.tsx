@@ -1,7 +1,6 @@
-import React from "react";
+"use client";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { FileText } from "lucide-react";
 import FileUpload from "@/components/FileUpload";
 import PDFViewer from "@/components/PDFViewer";
 import {
@@ -10,8 +9,15 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
-let submittedResume = true;
+let submittedResume = false;
 
 const Rating = () => {
   if (submittedResume) {
@@ -63,23 +69,28 @@ const Rating = () => {
   } else {
     return (
       <>
-        <div className="page-body grid grid-cols-2 gap-5">
-          <div className="input-box w-full">
-            <h2 className="text-neutral-200">job posting:</h2>
+        <div className="page-body grid grid-cols-1 gap-5 md:grid-cols-2">
+          <div className="input-box w-full rounded-xl bg-zinc-800 p-5">
+            <h2 className="font-bold text-neutral-200">job posting:</h2>
             <Textarea
-              className="rounded-xl border border-neutral-200 bg-zinc-800 text-neutral-200"
+              className="h-[55dvh] resize-none rounded-xl border border-neutral-200 bg-zinc-800 text-neutral-200"
               placeholder="<Paste job description here. If you’re interested in general feedback, leave this empty.>"
             />
           </div>
-          <div className="resume-sec w-full">
-            <h2 className="text-neutral-200">your resume:</h2>
+          <div className="resume-sec w-full rounded-xl bg-zinc-800 p-5">
+            <h2 className="font-bold text-neutral-200">your resume:</h2>
             <div className="grid w-full">
-              <FileText className="text-neutral-200" />
+              <Select>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select resume or upload" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="upload">Upload</SelectItem>
+                  <SelectItem value="Resume 1">Resume 1</SelectItem>
+                  <SelectItem value="Resume 1 (1)">Resume 1 (1)</SelectItem>
+                </SelectContent>
+              </Select>
               <FileUpload />
-              {/* <Input
-              type="file"
-              className="w-full rounded-xl border border-neutral-200 bg-zinc-800 text-sky-500"
-            /> */}
             </div>
             <Button className="mt-5 w-full bg-sky-500">RATE IT BABY!!!</Button>
             <div className="submit button"></div>
