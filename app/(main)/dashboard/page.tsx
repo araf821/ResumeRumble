@@ -76,7 +76,7 @@ const DashboardPage = () => {
           <h2 className="pb-2 text-xl font-bold text-neutral-200">
             your resumes:
           </h2>
-          <div className="grid-col-1 grid h-[60dvh] gap-3 overflow-hidden overflow-y-scroll pb-5 md:grid-cols-2">
+          <div className="grid-col-1 grid h-[60dvh] gap-3 overflow-y-scroll pb-5 md:grid-cols-2">
             {resumes.map((resume, index) => (
               <ResumeCard
                 key={index}
