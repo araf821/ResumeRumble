@@ -38,7 +38,7 @@ const Rating = () => {
           <Accordion
             type="single"
             collapsible
-            className="w-full rounded-xl bg-zinc-800 p-5"
+            className="w-full rounded-xl bg-zinc-800 p-5 pb-8"
           >
             <AccordionItem value="item-1">
               <AccordionTrigger>Grammar: 5/5</AccordionTrigger>
