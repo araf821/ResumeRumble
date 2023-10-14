@@ -1,6 +1,8 @@
-const layout = ({children}: {children: React.ReactNode}) => {
+const layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="w-screen grid place-items-center bg-zinc-900 h-[100dvh]">{children}</div>
-  )
-}
-export default layout
+    <div className="grid h-[90dvh] w-screen place-items-center bg-zinc-900">
+      {children}
+    </div>
+  );
+};
+export default layout;
