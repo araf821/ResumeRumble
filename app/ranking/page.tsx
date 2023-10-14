@@ -1,13 +1,29 @@
+import LobbyItem from "@/components/LobbyItem";
+
+const lobbyData = [
+  { name: "Lobby 1" },
+  { name: "Lobby 2" },
+  { name: "Lobby 3" },
+  { name: "Lobby 4" },
+  { name: "Lobby 5" },
+  { name: "Lobby 6" },
+  { name: "Lobby 7" },
+  { name: "Lobby 8" },
+  { name: "Lobby 9" },
+  { name: "Lobby 10" },
+  { name: "Lobby 11" },
+  { name: "Lobby 12" },
+  { name: "Lobby 13" },
+  { name: "Lobby 14" },
+  { name: "Lobby 15" },
+];
+
 const RankingPage = () => {
   return (
     <div>
-      <div className="m-5 rounded-xl bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 py-5">
-        <h1 className="overflow-clip whitespace-nowrap pl-5 text-xl font-bold">
-          Resume rankings
-        </h1>
-        <h2 className="pl-5 text-lg">See how you rank!</h2>
-      </div>
-      <div className="m-5 rounded-xl border border-neutral-200 bg-zinc-800 py-5"></div>
+      {lobbyData.map((data, index) => (
+        <LobbyItem key={index} name={data.name}></LobbyItem>
+      ))}
     </div>
   );
 };
