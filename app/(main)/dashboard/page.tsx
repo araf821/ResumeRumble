@@ -1,10 +1,7 @@
 import AddFileCard from "@/components/AddFileCard";
 import ResumeCard from "@/components/ResumeCard";
 import { db } from "@/lib/db";
-import { dateFormat } from "@/lib/utils";
 import { auth } from "@clerk/nextjs";
-import { Plus } from "lucide-react";
-import Link from "next/link";
 
 const DashboardPage = async () => {
   const { userId } = auth();
@@ -23,21 +20,9 @@ const DashboardPage = async () => {
       </p>
       <hr className="border-zinc-700" />
       <div className="grid grid-cols-1 gap-4 pt-2 lg:grid-cols-2">
-        {files.map((file, index) => (
-          <ResumeCard
-            key={index}
-            name={file.name}
-            uploadDate={dateFormat(new Date(file.createdAt).toISOString())}
-            fileUrl={file.fileUrl}
-            // isDefault={file.isDefault}
-          />
+        {files.map((file) => (
+          <ResumeCard key={file.id} file={file} />
         ))}
-        {/* <Link
-          className="grid h-40 content-center justify-items-center rounded-xl border border-neutral-200 bg-zinc-800 px-5 py-5"
-          href="\rating"
-        >
-          <Plus className="text-neutral-200" />
-        </Link> */}
         <AddFileCard />
       </div>
     </div>

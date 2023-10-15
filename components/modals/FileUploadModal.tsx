@@ -56,6 +56,7 @@ const FileUploadModal: FC<FileUploadModalProps> = () => {
       form.reset();
       onClose();
       router.push("/dashboard");
+      router.refresh();
     } catch (error: any) {
       toast({ title: "Something went wrong.", variant: "destructive" });
       console.log(error);

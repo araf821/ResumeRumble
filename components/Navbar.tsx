@@ -18,12 +18,9 @@ const Navbar = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed left-0 right-0 top-0 shadow-[0_2px_20px_2px] shadow-blue-500/10 flex h-16 border-b-2 border-zinc-800 bg-zinc-900">
-      <div className="mx-auto flex w-full max-w-screen-xl justify-between px-4">
-        <Link
-          className="my-auto ml-5 mr-auto text-3xl font-bold text-neutral-200"
-          href="/"
-        >
+    <nav className="fixed left-0 right-0 top-0 flex h-16 border-b-2 border-zinc-800 bg-zinc-900 shadow-[0_2px_20px_2px] shadow-blue-500/10">
+      <div className="mx-auto flex w-full max-w-screen-xl items-center justify-between px-4 2xl:px-0">
+        <Link className="text-3xl font-bold text-neutral-200" href="/dashboard">
           RR
         </Link>
         <div className="hidden items-center justify-center gap-6 md:flex">

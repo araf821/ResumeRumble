@@ -2,7 +2,8 @@ import { User } from "@prisma/client";
 import { FC } from "react";
 import Image from "next/image";
 import { dateFormat } from "@/lib/utils";
-import { SignOutButton } from "@clerk/nextjs";
+import { SignOutButton, SignedOut } from "@clerk/nextjs";
+import Link from "next/link";
 
 interface DashboardSidebarProps {
   user: User;
@@ -26,9 +27,12 @@ const DashboardSidebar: FC<DashboardSidebarProps> = ({ user }) => {
         <p>Joined: {dateFormat(new Date(user.createdAt).toISOString())}</p>
 
         <SignOutButton>
-          <button className="mt-auto w-fit p-0 text-zinc-400 transition hover:text-zinc-200">
+          <Link
+            href="/"
+            className="mt-auto w-fit p-0 text-zinc-400 transition hover:text-zinc-200"
+          >
             Not {user.name.split(" ")[0]}? Logout NOW
-          </button>
+          </Link>
         </SignOutButton>
       </div>
     </div>
