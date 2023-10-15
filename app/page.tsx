@@ -1,7 +1,8 @@
 "use client";
+
 import { Button } from "@/components/ui/button";
-import { SignInButton } from "@clerk/nextjs";
-import { useRouter } from "next/navigation";
+import { SignInButton, useAuth } from "@clerk/nextjs";
+import { redirect, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import {
   Accordion,
@@ -11,11 +12,12 @@ import {
 } from "@/components/ui/accordion";
 
 export default function Home() {
-  const router = useRouter();
+  const { userId } = useAuth();
 
-  const gotoLogin = () => {
-    router.push("/sign-in");
-  };
+  if (userId) {
+    redirect("/dashboard");
+  }
+
   return (
     <div className="min-h-screen w-full bg-[radial-gradient(ellipse_at_right,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black">
       <motion.div
@@ -169,7 +171,7 @@ export default function Home() {
                     users. ResumeRumble will compare your resume against other
                     users and see who comes out on top.
                   </p>
-                  Find your place on the leaderboard, sign up!
+                  Find your place on the leader boards, sign up!
                 </p>
               </AccordionContent>
             </AccordionItem>
