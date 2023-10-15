@@ -14,7 +14,6 @@ export const POST = async (req: Request) => {
   const res = await axios.get(file.fileUrl, {
     responseType: "arraybuffer",
   });
-  console.log("\n\n\npdf text\n\n\n", res.data);
   const pdfText = await pdf(res.data);
 
   const response = await openai.chat.completions.create({

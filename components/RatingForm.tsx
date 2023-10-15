@@ -20,10 +20,13 @@ import PDFViewer from "./PDFViewer";
 import axios from "axios";
 import qs from "query-string";
 import { Loader2 } from "lucide-react";
+import { Inter } from "next/font/google";
 
 interface RatingFormProps {
   files: File[];
 }
+
+const inter = Inter({ subsets: ["latin"] });
 
 const formSchema = z.object({
   fileUrl: z.string(),
@@ -46,8 +49,6 @@ const RatingForm: FC<RatingFormProps> = ({ files }) => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsLoading(true);
-    console.log(values);
-
     try {
       const url = qs.stringifyUrl({
         url: "/api/rating",
@@ -141,21 +142,30 @@ const RatingForm: FC<RatingFormProps> = ({ files }) => {
               disabled={isLoading}
               className="w-full bg-gradient-to-r from-sky-500 via-cyan-600 to-blue-600 py-8 text-xl md:text-2xl"
             >
-              {isLoading ? <Loader2 className="animate-spin" /> : "Rate Me!"}
+              {isLoading ? (
+                <p className="flex items-center gap-2">
+                  Loading Results <Loader2 className="animate-spin" />
+                </p>
+              ) : (
+                "Rate Me!"
+              )}
             </Button>
           </div>
         </form>
       </Form>
 
-      <div
-        ref={resultsRef}
-        className="mx-auto mt-8 w-full max-w-screen-sm bg-zinc-800 p-4"
-      >
+      <div className="mx-auto mt-8 w-full max-w-screen-sm bg-zinc-800 p-4">
         <p className="text-center text-2xl md:text-3xl">Results</p>
         <hr className="mx-auto mt-2 w-14 border-4 border-amber-600" />
 
-        {results ? (
-          <div className="whitespace-pre-line py-4">{results}</div>
+        {isLoading ? (
+          <Loader2 className="mx-auto my-14 h-7 w-7 animate-spin text-white" />
+        ) : results ? (
+          <div
+            className={`${inter.className} whitespace-pre-line py-4 font-sans text-lg text-zinc-300`}
+          >
+            {results}
+          </div>
         ) : (
           <p className="py-12 text-center text-zinc-400">
             Results will be displayed here.
