@@ -140,7 +140,7 @@ export default function Home() {
                   <p className="my-20">
                     ResumeRumble uses OpenAI to score the quality of your
                     resume. Scoring can be done on the general quality of your
-                    resume, or specific to the job you're aiming for.
+                    resume, or specific to the job you&apos;re aiming for.
                   </p>
                   What score do you think you&rsquo;ll get? Sign up now!
                 </p>
