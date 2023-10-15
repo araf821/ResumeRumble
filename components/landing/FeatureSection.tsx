@@ -15,11 +15,9 @@ const FeatureSection: FC<FeatureSectionProps> = ({}) => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
-      className="bg-zinc-800/40 rounded-md"
+      className="rounded-md bg-zinc-800/40"
     >
-      <h1 className="pt-10 text-center text-5xl text-cyan-100">
-        Features
-      </h1>
+      <h1 className="pt-10 text-center text-5xl text-cyan-100">Features</h1>
       <div className="mx-8 mt-10 grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-5">
         <Accordion
           type="single"
@@ -30,13 +28,13 @@ const FeatureSection: FC<FeatureSectionProps> = ({}) => {
             <AccordionTrigger>
               <div>
                 <h1 className="overflow-clip whitespace-nowrap text-left text-xl font-bold">
-                  Resume rating
+                  Resume Rating
                 </h1>
                 <h2 className="text-left text-lg">Get your resume ranked!</h2>
               </div>
             </AccordionTrigger>
             <AccordionContent>
-              <p className="text-xl flex flex-col gap-6 font-light text-zinc-800">
+              <p className="flex flex-col gap-6 text-xl font-light text-zinc-800">
                 Get your resume rated out of 100!
                 <p className="">
                   ResumeRumble uses OpenAI to score the quality of your resume.
@@ -57,13 +55,13 @@ const FeatureSection: FC<FeatureSectionProps> = ({}) => {
             <AccordionTrigger>
               <div>
                 <h1 className="overflow-clip whitespace-nowrap text-left text-xl font-bold">
-                  Resume Rankings
+                  Resume Ranking
                 </h1>
-                <h2 className="text-left text-lg">See how you rank!</h2>
+                <h2 className="text-left text-lg">See how you rank against others!</h2>
               </div>
             </AccordionTrigger>
             <AccordionContent>
-              <p className="text-xl flex flex-col gap-6 font-light text-zinc-800">
+              <p className="flex flex-col gap-6 text-xl font-light text-zinc-800">
                 Battle your resume against other users!
                 <p className="">
                   Join a lobby, invite your friends, or connect with other

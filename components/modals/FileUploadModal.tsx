@@ -109,7 +109,6 @@ const FileUploadModal: FC<FileUploadModalProps> = () => {
                           endpoint="pdf"
                           onClientUploadComplete={(res) => {
                             if (res) {
-                              console.log(res);
                               form.setValue("name", res[0].name);
                               form.setValue("fileKey", res[0].key);
                               form.setValue("fileUrl", res[0].url);

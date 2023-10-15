@@ -7,7 +7,7 @@ const PDFViewer = ({ url }: { url: string }) => {
     <iframe
       onResize={() => {}}
       src={`https://docs.google.com/gview?url=${url}&embedded=true`}
-      className="h-full w-full"
+      className="absolute top-0 left-0 w-full h-full"
     />
   );
 };
