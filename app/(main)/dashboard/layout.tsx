@@ -1,6 +1,7 @@
 import DashboardSidebar from "@/components/DashboardSidebar";
 import { getCurrentUser } from "@/lib/getCurrentUser";
 import { redirect } from "next/navigation";
+import { initializeUser } from "@/lib/initializeUser";
 
 const DashBoardLayout = async ({ children }: { children: React.ReactNode }) => {
   await initializeUser();
