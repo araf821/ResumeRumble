@@ -1,92 +1,29 @@
-import { Button } from "@/components/ui/button";
+import AddFileCard from "@/components/AddFileCard";
 import ResumeCard from "@/components/ResumeCard";
-import { CircleDashed, Plus } from "lucide-react";
-import Link from "next/link";
+import { db } from "@/lib/db";
+import { auth } from "@clerk/nextjs";
 
-type ResumeData = {
-  name: string;
-  uploadDate: string;
-  file: string;
-};
+const DashboardPage = async () => {
+  const { userId } = auth();
 
-type DashboardProps = {
-  resumes: ResumeData[]; // Define the type explicitly as an array of ResumeData
-};
-
-const DashboardPage = () => {
-  const resumes = [
-    {
-      name: "Johnny Donuts",
-      uploadDate: "00-00-00",
-      file: "https://example.com/johndoe_resume.pdf",
+  const files = await db.file.findMany({
+    where: {
+      userId,
     },
-    {
-      name: "Johnny Donuts",
-      uploadDate: "00-00-00",
-      file: "https://example.com/johndoe_resume.pdf",
-    },
-    {
-      name: "Johnny Donuts",
-      uploadDate: "00-00-00",
-      file: "https://example.com/johndoe_resume.pdf",
-      isDefault: true,
-    },
-    {
-      name: "Johnny Donuts",
-      uploadDate: "00-00-00",
-      file: "https://example.com/johndoe_resume.pdf",
-    },
-    {
-      name: "Johnny Donuts",
-      uploadDate: "00-00-00",
-      file: "https://example.com/johndoe_resume.pdf",
-    },
-    {
-      name: "Johnny Donuts",
-      uploadDate: "00-00-00",
-      file: "https://example.com/johndoe_resume.pdf",
-    },
-  ];
+  });
 
   return (
-    <div className="">
-      <div className="grid grid-cols-1 gap-5 md:grid-cols-[33%_auto]">
-        <div className="flex h-[70dvh] flex-col justify-center rounded-xl bg-zinc-800">
-          <CircleDashed className="h-full w-full px-10 py-20 text-neutral-200" />
-          <div className="mt-auto grid grid-cols-1 gap-2 pl-5 md:grid-cols-[auto_min-content]">
-            <div className="">
-              <h1 className="text-md text-neutral-200 md:mb-5">
-                You are logged in as: FirstName LastName
-              </h1>
-            </div>
-            <Button className="mb-5 mt-auto w-fit bg-sky-500 md:ml-auto md:mr-5">
-              Logout
-            </Button>
-          </div>
-        </div>
-
-        <div className="resumes h-[70dvh] rounded-xl bg-zinc-800 p-5">
-          <h2 className="pb-2 text-xl font-bold text-neutral-200">
-            your resumes:
-          </h2>
-          <div className="grid-col-1 grid h-[60dvh] gap-3 overflow-x-hidden overflow-y-scroll pb-5 md:grid-cols-2">
-            {resumes.map((resume, index) => (
-              <ResumeCard
-                key={index}
-                name={resume.name}
-                uploadDate={resume.uploadDate}
-                file={resume.file}
-                isDefault={resume.isDefault}
-              />
-            ))}
-            <Link
-              className="grid h-40 content-center justify-items-center rounded-xl border border-neutral-200 bg-zinc-800 px-5 py-5"
-              href="\rating"
-            >
-              <Plus className="text-neutral-200" />
-            </Link>
-          </div>
-        </div>
+    <div className="space-y-1 md:col-span-2 lg:col-span-3">
+      <p className="text-2xl text-zinc-200 md:text-3xl">Your Uploads</p>
+      <p className="text-zinc-400">
+        Manage your default resume or delete uploaded files
+      </p>
+      <hr className="border-zinc-700" />
+      <div className="grid grid-cols-1 gap-4 pt-2 lg:grid-cols-2">
+        {files.map((file) => (
+          <ResumeCard key={file.id} file={file} />
+        ))}
+        <AddFileCard />
       </div>
     </div>
   );
@@ -94,3 +31,37 @@ const DashboardPage = () => {
 /*
  */
 export default DashboardPage;
+
+const resumes = [
+  {
+    name: "Johnny Donuts",
+    uploadDate: "00-00-00",
+    file: "https://example.com/johndoe_resume.pdf",
+  },
+  {
+    name: "Johnny Donuts",
+    uploadDate: "00-00-00",
+    file: "https://example.com/johndoe_resume.pdf",
+  },
+  {
+    name: "Johnny Donuts",
+    uploadDate: "00-00-00",
+    file: "https://example.com/johndoe_resume.pdf",
+    isDefault: true,
+  },
+  {
+    name: "Johnny Donuts",
+    uploadDate: "00-00-00",
+    file: "https://example.com/johndoe_resume.pdf",
+  },
+  {
+    name: "Johnny Donuts",
+    uploadDate: "00-00-00",
+    file: "https://example.com/johndoe_resume.pdf",
+  },
+  {
+    name: "Johnny Donuts",
+    uploadDate: "00-00-00",
+    file: "https://example.com/johndoe_resume.pdf",
+  },
+];

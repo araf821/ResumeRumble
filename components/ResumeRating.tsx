@@ -17,7 +17,6 @@ const ResumeRating: FC<ResumeRatingProps> = ({}) => {
     try {
       const response = await axios.post("/api/openai", {jobDescription});
       setMessage(response.data.content);
-      console.log("\n\n\nRESPONSN\n\n\n\n", response.data);
     } catch (error) {
       console.log("\n\n\nERROR\n\n\n", error);
     } finally {

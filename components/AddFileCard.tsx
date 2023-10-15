@@ -11,7 +11,7 @@ const AddFileCard: FC<AddFileCardProps> = ({}) => {
 
   return (
     <button
-      className="flex h-[30dvh] w-full flex-col items-center justify-center rounded-md border-2 border-dashed border-zinc-600 lg:text-lg"
+      className="flex w-full py-6 flex-col items-center justify-center space-y-2 rounded-md border-2 border-dashed border-zinc-600 lg:text-lg"
       onClick={() => onOpen("addFile")}
     >
       <p className="text-zinc-400">Add New File</p>

@@ -1,11 +1,21 @@
 import Navbar from "@/components/Navbar";
+import { Toaster } from "@/components/ui/toaster";
+import { auth } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
 
-const layout = ({ children }: { children: React.ReactNode }) => {
+const MainLayout = async ({ children }: { children: React.ReactNode }) => {
+  const { userId } = await auth();
+
+  if (!userId) {
+    redirect("/");
+  }
+
   return (
-    <div className="h-[90dvh] w-screen bg-zinc-900">
+    <div className="mt-16 bg-zinc-900">
       <Navbar />
+      <Toaster />
       {children}
     </div>
   );
 };
-export default layout;
+export default MainLayout;

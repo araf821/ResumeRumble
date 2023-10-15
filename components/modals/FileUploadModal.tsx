@@ -56,6 +56,7 @@ const FileUploadModal: FC<FileUploadModalProps> = () => {
       form.reset();
       onClose();
       router.push("/dashboard");
+      router.refresh();
     } catch (error: any) {
       toast({ title: "Something went wrong.", variant: "destructive" });
       console.log(error);
@@ -75,7 +76,7 @@ const FileUploadModal: FC<FileUploadModalProps> = () => {
                 control={form.control}
                 render={() => (
                   <FormItem>
-                    <FormLabel className="text-xl md:text-2xl text-zinc-300">
+                    <FormLabel className="text-xl text-zinc-300 md:text-2xl">
                       Upload a PDF
                     </FormLabel>
                     <hr className="border-zinc-800" />
@@ -83,7 +84,9 @@ const FileUploadModal: FC<FileUploadModalProps> = () => {
                       {form.getValues().name ? (
                         <div className="w-full space-y-6 rounded-md bg-zinc-800 py-12 text-center">
                           <p className="text-zinc-400">Uploaded Successfully</p>
-                          <p className="px-2 md:text-lg">{form.getValues().name}</p>
+                          <p className="px-2 md:text-lg">
+                            {form.getValues().name}
+                          </p>
 
                           <button
                             onClick={() => {
@@ -106,7 +109,6 @@ const FileUploadModal: FC<FileUploadModalProps> = () => {
                           endpoint="pdf"
                           onClientUploadComplete={(res) => {
                             if (res) {
-                              console.log(res);
                               form.setValue("name", res[0].name);
                               form.setValue("fileKey", res[0].key);
                               form.setValue("fileUrl", res[0].url);
@@ -129,7 +131,7 @@ const FileUploadModal: FC<FileUploadModalProps> = () => {
                 disabled={isLoading}
                 className="rounded-sm bg-zinc-800 px-3 py-2.5 text-white transition hover:bg-zinc-700"
               >
-                Submit File
+                Confirm Upload
               </button>
             </form>
           </Form>

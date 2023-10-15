@@ -1,4 +1,11 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  experimental: {
+    serverComponentsExternalPackages: ["pdf-parse"],
+  },
+  images: {
+    domains: ["img.clerk.com"],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
