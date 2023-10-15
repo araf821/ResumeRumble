@@ -19,7 +19,7 @@ const Navbar = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed z-10 left-0 right-0 top-0 flex h-16 border-b-2 border-zinc-800 bg-zinc-900 shadow-[0_2px_20px_2px] shadow-blue-500/10">
+    <nav className="fixed left-0 right-0 top-0 z-10 flex h-16 border-b-2 border-zinc-800 bg-zinc-900 shadow-[0_2px_20px_2px] shadow-blue-500/10">
       <div className="mx-auto flex w-full max-w-screen-xl items-center justify-between px-4 2xl:px-0">
         <Link className="text-3xl font-bold text-neutral-200" href="/dashboard">
           RR
@@ -124,12 +124,14 @@ const Navbar = () => {
                 className="order-last flex flex-col items-center gap-4"
               >
                 <SheetClose asChild>
-                  <Link
-                    href="/ranking"
-                    className=" mt-5 w-full rounded-sm bg-blue-500 py-2.5 text-center text-lg font-semibold text-white hover:bg-zinc-50  hover:text-zinc-800"
-                  >
-                    Log out
-                  </Link>
+                  <SignOutButton>
+                    <Link
+                      href="/ranking"
+                      className=" mt-5 w-full rounded-sm bg-blue-500 py-2.5 text-center text-lg font-semibold text-white hover:bg-zinc-50  hover:text-zinc-800"
+                    >
+                      Sign Out
+                    </Link>
+                  </SignOutButton>
                 </SheetClose>
               </div>
             </SheetContent>
