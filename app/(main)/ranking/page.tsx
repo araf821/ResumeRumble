@@ -19,7 +19,7 @@ import { Input } from "@/components/ui/input"
  
 
 const lobbyData = [
-  { name: "Lobby 1" },
+  { name: "Lobby 1", current: 1, max: 2 },
   { name: "Lobby 2" },
   { name: "Lobby 3" },
   { name: "Lobby 4" },
@@ -55,7 +55,12 @@ const formSchema = z.object({
  return (
     <div className="h-[60dvh] overflow-y-scroll rounded-xl bg-zinc-800 p-5 pt-2">
       {lobbyData.map((data, index) => (
-        <LobbyItem key={index} name={data.name}></LobbyItem>
+        <LobbyItem
+          key={index}
+          name={data.name}
+          current={data.current}
+          max={data.max}
+        ></LobbyItem>
       ))}
          <div
         className="grid h-28 content-center justify-items-center rounded-xl border border-neutral-200 bg-zinc-800 px-5 py-5"
