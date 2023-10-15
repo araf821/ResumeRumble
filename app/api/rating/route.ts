@@ -4,7 +4,7 @@ import pdf from "pdf-parse";
 import axios from "axios";
 import { getCurrentUser } from "@/lib/getCurrentUser";
 
-export const runtime = "edge";
+// export const runtime = "edge";
 
 export const POST = async (req: Request) => {
   const user = await getCurrentUser();
