@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# ResumeRumble
 
-First, run the development server:
+Level up your resume game! Made by job seekers, for job seekers, ResumeRumble provides a free and fun way to improve your resume with detailed, competitive insights, powered by OpenAI.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Inspiration
+As students, we know the struggles of applying to countless jobs and being left wondering where you went wrong. Although there are plenty of resources to improve resume quality, most are general information and cannot provide specific feedback for your target role. Hence why we created ResumeRumble, for a fun way for everyone to improve their resume writing skills.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## What it does
+ResumeRumble uses OpenAI to generate quality, detailed feedback on your resume. Submit your resume and receive feedback and a score out of 100. Optionally you can include the description of your target job for specific feedback and scoring based on how well your resume relates to that role. 
+ResumeRumble incentivizes users to keep improving by featuring friendly competition and peer-learning. Use your resumes to compete against friends, or other players. Create or join a lobby, with an optional job description, and select your resume of choice. Everyone will receive their score and feedback, as well as view other players' resume's; but only one will win!
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## How we built it
+- Resume Rumble is a modern full stack Application using NextJS. 
+- Webpages made with React, Typescript, Tailwind and shadcn/ui.
+- User auth is handled with Clerk.
+- Resumes are uploaded and stored on PlanetScale with Prisma
+- Uses the OpenAI API
 
-## Learn More
+## Challenges we ran into
+The whole thing.
+But more specifically:
+- Converting Pdfs to text to pass into the OpenAI API
+- Styling webpages with Tailwind animations 
+- Setting up Prisma schemas to communicate with the database
+- Hosting project on Vercel and configuring our .tech domain 
+- User resume uploading and management
+- Connecting Users together for the lobby system
 
-To learn more about Next.js, take a look at the following resources:
+## Accomplishments that we're proud of
+The whole thing.
+But more specifically:
+- Very ambitious project that we were able to get functional within 36 hours.
+- Fully mobile responsive Front-end with animations built with react components 
+- Robust Back-end functionality including database CRUD operations, API calling, and Middleware management.
+- Our Domain name
+- Araf carrying us in the final stretch (goat)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## What we learned
+- Only one of our group members had experience with the tech stack we used. The other 3 learned the entire stack (Next.js, Planetscale, Tailwind, Typescript) during the project, from knowing nothing to deploying a Full-stack application with those tools.
+- We also became familiar with shadcn/ui, a very helpful component library for making the website look consistent.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## What's next for ResumeRumble
+We'd love to make ResumeRumble into a site for all things about making a good resume. With additional features like:
+- expand our competitive system by increasing lobby sizes, adding an elo system for matchmaking, and adding a leaderboard. 
+- Additionally we'd like to add more practice tools, like sample job postings and lessons on resume building. 
+- We could also add a peer to peer resume reviewing service, where members are able to give feedback on each others resumes.
