@@ -123,7 +123,7 @@ export default function Home() {
           <Accordion
             type="single"
             collapsible
-            className="mb-8 h-fit w-full rounded-xl bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 p-5"
+            className="mb-8 h-fit w-full rounded-xl bg-gradient-to-r from-purple-600 via-blue-500 to-green-300 p-5"
           >
             <AccordionItem value="1">
               <AccordionTrigger>
