@@ -6,16 +6,23 @@ import LobbyItem from "@/components/LobbyItem";
 import Link from "next/link";
 import { Plus } from "lucide-react";
 import { Button } from "@/components/ui/button"
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+
+
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+
+
+
  
 
 const lobbyData = [
@@ -63,12 +70,30 @@ const formSchema = z.object({
         ></LobbyItem>
       ))}
          <div
-        className="grid h-28 content-center justify-items-center rounded-xl border border-neutral-200 bg-zinc-800 px-5 py-5"
+        className="grid h-40 content-center justify-items-center rounded-xl border border-neutral-200 bg-zinc-800 px-5 py-5"
        
       >
-       <form action="">
-
-       </form>
+            <AlertDialog>
+              <AlertDialogTrigger asChild>
+                <Button className="text-black" variant="outline">Make Lobby</Button>
+              </AlertDialogTrigger>
+              <AlertDialogContent className="bg-zinc-800">
+                <AlertDialogHeader>
+                  <AlertDialogTitle>Make Lobby:</AlertDialogTitle>
+                </AlertDialogHeader>
+                <Input type="name" placeholder="Lobby Name" />
+                <Textarea
+              className="h-32-xl border border-neutral-200 bg-zinc-800 text-neutral-200"
+              placeholder="<Paste job description here. If you’re interested in general feedback, leave this empty.>"
+            />
+                <AlertDialogFooter>
+                  <AlertDialogCancel className="text-black"  >Cancel</AlertDialogCancel>
+                  <AlertDialogAction>Continue</AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
+        
+        
       </div>
     </div>
   );
