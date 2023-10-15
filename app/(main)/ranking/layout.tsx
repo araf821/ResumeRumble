@@ -1,3 +1,4 @@
+import UserRoomsSidebar from "@/components/UserRoomsSidebar";
 import { Button } from "@/components/ui/button";
 import { db } from "@/lib/db";
 import { getCurrentUser } from "@/lib/getCurrentUser";
@@ -28,22 +29,8 @@ const RankingLayout = async ({ children }: { children: React.ReactNode }) => {
         <div className="md:col-span-2 lg:col-span-3">{children}</div>
 
         {/* Sidebar */}
-        <div className="top-24 col-span-1 h-fit rounded-lg border border-zinc-700 bg-zinc-800 md:sticky">
-          <p className="py-3 text-center text-xl">Your Rooms</p>
-          <hr className="border-zinc-700" />
-          {!userRooms?.rooms.length ? (
-            <div className="space-y-4 px-4 py-6 text-center">
-              <p className="text-zinc-400">
-                You have not yet joined or created any rooms.
-              </p>
-              <Button className="w-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 hover:bg-current text-black text-lg font-bold">
-                Create Room
-              </Button>
-            </div>
-          ) : (
-            userRooms.rooms.map((room) => <div key={room.id}></div>)
-          )}
-        </div>
+        
+        <UserRoomsSidebar rooms={userRooms?.rooms}/>
       </div>
     </div>
   );
