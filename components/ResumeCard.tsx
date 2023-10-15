@@ -5,24 +5,25 @@ import { Trash2 } from "lucide-react";
 function ResumeCard({
   name,
   uploadDate,
-  file,
+  fileUrl,
   isDefault = false,
 }: {
   name: string;
   uploadDate: string;
-  file: string;
+  fileUrl: string;
   isDefault?: boolean;
 }) {
   return (
-    <div className="resume-card flex h-40 flex-col overflow-hidden rounded-xl border border-neutral-200 bg-zinc-800 px-5 py-5">
+    <div className="resume-card flex flex-col overflow-hidden rounded-md border border-neutral-200 bg-transparent px-5 py-5">
       <h1 className="overflow-hidden overflow-ellipsis whitespace-nowrap text-neutral-200">
         {name}
       </h1>
       <div className="upload-date overflow-hidden overflow-ellipsis whitespace-nowrap text-neutral-200">
-        {uploadDate}
+        Uploaded on: {uploadDate}
       </div>
+
       <Link
-        href={file}
+        href={fileUrl}
         target="_blank"
         rel="noopener noreferrer"
         className="overflow-hidden overflow-ellipsis whitespace-nowrap text-neutral-200 underline"

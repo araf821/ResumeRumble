@@ -18,7 +18,7 @@ const Navbar = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed left-0 right-0 top-0 flex h-16 border-b-2 border-zinc-800">
+    <nav className="fixed left-0 right-0 top-0 shadow-[0_2px_20px_2px] shadow-blue-500/10 flex h-16 border-b-2 border-zinc-800 bg-zinc-900">
       <div className="mx-auto flex w-full max-w-screen-xl justify-between px-4">
         <Link
           className="my-auto ml-5 mr-auto text-3xl font-bold text-neutral-200"
@@ -31,7 +31,8 @@ const Navbar = () => {
             className={cn(
               "rounded-md bg-zinc-800 px-2.5 py-1 text-lg text-neutral-200 transition hover:bg-zinc-700",
               {
-                "bg-blue-500 hover:bg-blue-600": pathname === "/dashboard",
+                "bg-[conic-gradient(at_left,_var(--tw-gradient-stops))] from-sky-400 to-blue-800 hover:bg-[conic-gradient(at_left,_var(--tw-gradient-stops))]":
+                  pathname === "/dashboard",
               },
             )}
             href="/dashboard"
@@ -42,7 +43,8 @@ const Navbar = () => {
             className={cn(
               "rounded-md bg-zinc-800 px-2.5 py-1 text-lg text-neutral-200 transition hover:bg-zinc-700",
               {
-                "bg-blue-500 hover:bg-blue-600": pathname === "/rating",
+                "bg-gradient-to-r from-purple-600 via-blue-500 to-green-300 hover:bg-gradient-to-r":
+                  pathname === "/rating",
               },
             )}
             href="/rating"
@@ -53,7 +55,8 @@ const Navbar = () => {
             className={cn(
               "rounded-md bg-zinc-800 px-2.5 py-1 text-lg text-neutral-200 transition hover:bg-zinc-700",
               {
-                "bg-blue-500 hover:bg-blue-600": pathname === "/ranking",
+                "bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 hover:bg-gradient-to-r":
+                  pathname === "/ranking",
               },
             )}
             href="/ranking"
