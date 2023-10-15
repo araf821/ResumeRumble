@@ -29,8 +29,11 @@ const UserRoomsSidebar: FC<UserRoomsSidebarProps> = ({ rooms }) => {
           </Button>
         </div>
       ) : (
-        rooms.map((room) => <div key={room.id}></div>)
+        rooms.map((room) => <div key={room.id}>
+          
+        </div>)
       )}
+      
     </div>
   );
 };

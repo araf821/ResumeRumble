@@ -1,7 +1,5 @@
 import UserRoomsSidebar from "@/components/UserRoomsSidebar";
-import { Button } from "@/components/ui/button";
 import { db } from "@/lib/db";
-import { getCurrentUser } from "@/lib/getCurrentUser";
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 
@@ -14,7 +12,7 @@ const RankingLayout = async ({ children }: { children: React.ReactNode }) => {
       userId,
     },
     select: {
-      rooms: true,
+      Room: true,
     },
   });
 
@@ -29,8 +27,8 @@ const RankingLayout = async ({ children }: { children: React.ReactNode }) => {
         <div className="md:col-span-2 lg:col-span-3">{children}</div>
 
         {/* Sidebar */}
-        
-        <UserRoomsSidebar rooms={userRooms?.rooms}/>
+
+        <UserRoomsSidebar rooms={userRooms?.Room} />
       </div>
     </div>
   );

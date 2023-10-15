@@ -1,4 +1,6 @@
+import RoomsList from "@/components/RoomsList";
 import { db } from "@/lib/db";
+import { ArrowRight } from "lucide-react";
 
 const RankingPage = async () => {
   const rooms = await db.room.findMany();
@@ -8,16 +10,7 @@ const RankingPage = async () => {
       <p className="text-2xl md:text-3xl">Find Rooms</p>
       <hr className="border-zinc-800" />
       {/* List of rooms */}
-      {!rooms.length ? (
-        <p className="max-w-md py-8 text-zinc-400">
-          No rooms to display at this time. Please check back later or create
-          your own!
-        </p>
-      ) : (
-        rooms.map((room) => <div key={room.id}>
-
-        </div>)
-      )}
+      <RoomsList rooms={rooms} />
     </div>
   );
 };

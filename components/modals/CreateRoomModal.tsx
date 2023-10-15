@@ -35,11 +35,10 @@ const formSchema = z.object({
   jobDescription: z.string().optional(),
   capacity: z
     .string()
-    .max(50, { message: "Rooms can hold a maximum of 50 users." })
-    .min(2, { message: "Each room must have a capacity of at least 2." })
-    .refine((val) => !Number.isNaN(parseInt(val, 10)), {
-      message: "Expected number, received a string",
-    }),
+    .refine((value) => !isNaN(parseFloat(value)), {
+      message: "Capacity must be a valid number.",
+    })
+    .transform((value) => parseFloat(value)),
 });
 
 const CreateRoomModal: FC<CreateRoomModalProps> = () => {
@@ -55,19 +54,23 @@ const CreateRoomModal: FC<CreateRoomModalProps> = () => {
     defaultValues: {
       name: "",
       jobDescription: "",
-      capacity: "",
+      capacity: 2,
     },
   });
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsLoading(true);
 
+    if (form.getValues("capacity") < 2 || form.getValues("capacity") > 50) {
+      return toast({ title: "Invalid capacity" });
+    }
+
     try {
-      const response = await axios.post("/api/file", values);
+      const response = await axios.post("/api/room", values);
       toast({ title: "Room created!" });
       form.reset();
       onClose();
-      router.push("/");
+      router.push(`/ranking/room/${response.data?.id}`);
     } catch (error: any) {
       toast({ title: "Something went wrong.", variant: "destructive" });
       console.log(error);
