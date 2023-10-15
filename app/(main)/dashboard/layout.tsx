@@ -3,6 +3,7 @@ import { getCurrentUser } from "@/lib/getCurrentUser";
 import { redirect } from "next/navigation";
 
 const DashBoardLayout = async ({ children }: { children: React.ReactNode }) => {
+  await initializeUser();
   const user = await getCurrentUser();
 
   if (!user) {
