@@ -30,7 +30,7 @@ const ResumeFeedback = ({
           className="w-full rounded-xl bg-zinc-800 p-5 pb-8"
         >
           {data.map((data, index) => (
-            <AccordionItem value={index.toString()}>
+            <AccordionItem key={index} value={index.toString()}>
               <AccordionTrigger>{data.title}</AccordionTrigger>
               <AccordionContent>{data.content}</AccordionContent>
             </AccordionItem>
