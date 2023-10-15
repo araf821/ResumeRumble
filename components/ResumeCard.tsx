@@ -14,14 +14,18 @@ function ResumeCard({
   isDefault?: boolean;
 }) {
   return (
-    <div className="resume-card flex h-40 flex-col overflow-clip rounded-xl border border-neutral-200 bg-zinc-800 px-5 py-5">
-      <h1 className="text-neutral-200">{name}</h1>
-      <div className="upload-date text-neutral-200">{uploadDate}</div>
+    <div className="resume-card flex h-40 flex-col overflow-hidden rounded-xl border border-neutral-200 bg-zinc-800 px-5 py-5">
+      <h1 className="overflow-hidden overflow-ellipsis whitespace-nowrap text-neutral-200">
+        {name}
+      </h1>
+      <div className="upload-date overflow-hidden overflow-ellipsis whitespace-nowrap text-neutral-200">
+        {uploadDate}
+      </div>
       <Link
         href={file}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-neutral-200 underline"
+        className="overflow-hidden overflow-ellipsis whitespace-nowrap text-neutral-200 underline"
       >
         View PDF Version
       </Link>

@@ -13,7 +13,7 @@ const LobbyItem = ({
     // join modal shows description and resume select
     <div className="my-5">
       <div className="flex overflow-clip rounded-xl border border-neutral-200 bg-zinc-800 px-5 py-5">
-        <p className="my-auto overflow-clip overflow-ellipsis whitespace-nowrap font-bold text-neutral-200">
+        <p className="my-auto overflow-hidden overflow-ellipsis whitespace-nowrap font-bold text-neutral-200">
           {name}
         </p>
 
