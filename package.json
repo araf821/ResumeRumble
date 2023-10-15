@@ -11,6 +11,7 @@
   "dependencies": {
     "@clerk/nextjs": "^4.25.4",
     "@hookform/resolvers": "^3.3.2",
+    "@pinecone-database/pinecone": "^1.1.1",
     "@prisma/client": "^5.4.2",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-dialog": "^1.0.5",
@@ -32,6 +33,7 @@
     "openai": "^4.12.1",
     "pdf-parse": "^1.1.1",
     "pdfjs": "^2.5.2",
+    "pdfjs-dist": "^3.11.174",
     "prisma": "^5.4.2",
     "react": "^18",
     "react-dom": "^18",
