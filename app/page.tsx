@@ -63,7 +63,7 @@ export default function Home() {
               What score do you think you&rsquo;ll get? Sign up now!
             </p>
           </h2>
-          <h2 className="rounded-md bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 pt-10 text-left text-left indent-12 text-3xl font-extrabold">
+          <h2 className="rounded-md bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 pt-10 text-left indent-12 text-3xl font-extrabold">
             Resume Rankings
             <p className="mt-10 bg-zinc-900 bg-opacity-50 px-12 pb-20 pt-20 text-left indent-0 text-xl font-light text-cyan-100">
               Battle your resume against other users!
