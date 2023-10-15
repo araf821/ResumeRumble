@@ -9,14 +9,6 @@ type ResumeData = {
   file: string;
 };
 
-const resumes = [
-  {
-    name: "Johnny Donuts",
-    uploadDate: "00-00-00",
-    file: "https://example.com/johndoe_resume.pdf",
-  },
-];
-
 type DashboardProps = {
   resumes: ResumeData[]; // Define the type explicitly as an array of ResumeData
 };
@@ -37,6 +29,7 @@ const DashboardPage = () => {
       name: "Johnny Donuts",
       uploadDate: "00-00-00",
       file: "https://example.com/johndoe_resume.pdf",
+      isDefault: true,
     },
     {
       name: "Johnny Donuts",
@@ -76,17 +69,18 @@ const DashboardPage = () => {
           <h2 className="pb-2 text-xl font-bold text-neutral-200">
             your resumes:
           </h2>
-          <div className="grid-col-1 grid h-[60dvh] gap-3 overflow-hidden overflow-y-scroll pb-5 md:grid-cols-2">
+          <div className="grid-col-1 grid h-[60dvh] gap-3 overflow-y-scroll pb-5 md:grid-cols-2">
             {resumes.map((resume, index) => (
               <ResumeCard
                 key={index}
                 name={resume.name}
                 uploadDate={resume.uploadDate}
                 file={resume.file}
+                isDefault={resume.isDefault}
               />
             ))}
             <Link
-              className="grid h-28 content-center justify-items-center rounded-xl border border-neutral-200 bg-zinc-800 px-5 py-5"
+              className="grid h-40 content-center justify-items-center rounded-xl border border-neutral-200 bg-zinc-800 px-5 py-5"
               href="\rating"
             >
               <Plus className="text-neutral-200" />
