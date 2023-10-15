@@ -1,150 +1,140 @@
 "use client";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
-import { CircleDashed } from "lucide-react";
 import Link from "next/link";
 
-import { useClerk } from '@clerk/clerk-react';
-
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import {
   Sheet,
   SheetClose,
   SheetContent,
-  SheetDescription,
-  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet"
-
-let isLoggedin = false
+} from "@/components/ui/sheet";
+import { cn } from "@/lib/utils";
+import { UserButton } from "@clerk/nextjs";
 
 const Navbar = () => {
-  const path = usePathname();
-  const { user } = useClerk();
+  const pathname = usePathname();
+
   return (
-    <nav className="sticky top-0 flex h-[8dvh] bg-zinc-800">
-      <Link
-        className="my-auto ml-5 mr-auto text-3xl font-bold text-neutral-200"
-        href="/"
-      >
-        RR
-      </Link>
-      <div className="my-auto ml-auto mr-10 hidden space-x-10 md:flex">
-        <Link
-          className="text-lg text-neutral-200 active:underline"
-          style={path === "/dashboard" ? { textDecoration: "underline" } : {}}
-          href="/dashboard"
-        >
-          dashboard
+    <nav className="fixed left-0 right-0 top-0 flex h-16 border-b-2 border-zinc-800 bg-zinc-900 shadow-[0_2px_20px_2px] shadow-blue-500/10">
+      <div className="mx-auto flex w-full max-w-screen-xl items-center justify-between px-4 2xl:px-0">
+        <Link className="text-3xl font-bold text-neutral-200" href="/dashboard">
+          RR
         </Link>
-        <Link
-          className="text-lg text-neutral-200 active:underline"
-          style={path === "/rating" ? { textDecoration: "underline" } : {}}
-          href="/rating"
-        >
-          rating
-        </Link>
-        <Link
-          className="text-lg text-neutral-200 active:underline"
-          style={path === "/ranking" ? { textDecoration: "underline" } : {}}
-          href="/ranking"
-        >
-          ranking
-        </Link>
-      </div>
-      <div className="my-auto ml-auto mr-5 space-x-10 md:hidden">
-
-      <Sheet >
-
-      <SheetTrigger asChild>
-        <Menu className="text-neutral-200" />
-      </SheetTrigger>
-
-       <SheetContent className="bg-zinc-800">
-        <SheetHeader>
-          <SheetTitle className=" text-xl text-zinc-50">Resume Rumble</SheetTitle>
-        </SheetHeader>
-       
-        <div className=" mt-4 flex h-50 flex-col  rounded-full px-4 pb-4 font-karla tracking-wider text-zinc-50">
-           <div
-            onClick={() => close()}
-            className="flex flex-col items-center gap-4"
+        <div className="hidden items-center justify-center gap-6 md:flex">
+          <Link
+            className={cn(
+              "rounded-md bg-zinc-800 px-2.5 py-1 text-lg text-neutral-200 transition hover:bg-zinc-700",
+              {
+                "bg-[conic-gradient(at_left,_var(--tw-gradient-stops))] from-sky-400 to-blue-800 hover:bg-[conic-gradient(at_left,_var(--tw-gradient-stops))]":
+                  pathname === "/dashboard",
+              },
+            )}
+            href="/dashboard"
           >
-            <SheetClose asChild>
-
-            <Link
-              href="/dashboard"
-              className=" mt-5 w-full rounded-sm bg-blue-500 py-2.5 text-center text-lg font-semibold text-white hover:text-zinc-800  hover:bg-zinc-50"
-            >
-              Dashboard
-            </Link>
-            </SheetClose>
-          
-          </div>
-          <div
-            onClick={() => close()}
-            className="flex flex-col items-center gap-4"
+            Dashboard
+          </Link>
+          <Link
+            className={cn(
+              "rounded-md bg-zinc-800 px-2.5 py-1 text-lg text-neutral-200 transition hover:bg-zinc-700",
+              {
+                "bg-gradient-to-r from-purple-600 via-blue-500 to-green-300 hover:bg-gradient-to-r":
+                  pathname === "/rating",
+              },
+            )}
+            href="/rating"
           >
-            <SheetClose asChild>
-
-            <Link
-              href="/rating"
-              className=" mt-5 w-full rounded-sm bg-blue-500 py-2.5 text-center text-lg font-semibold text-white hover:text-zinc-800  hover:bg-zinc-50"
-            >
-              Rating
-            </Link>
-            </SheetClose>
-          
-          </div>
-            <div
-            onClick={() => close()}
-            className="order-last flex flex-col items-center gap-4"
+            Rating
+          </Link>
+          <Link
+            className={cn(
+              "rounded-md bg-zinc-800 px-2.5 py-1 text-lg text-neutral-200 transition hover:bg-zinc-700",
+              {
+                "bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 hover:bg-gradient-to-r":
+                  pathname === "/ranking",
+              },
+            )}
+            href="/ranking"
           >
-            <SheetClose asChild>
-
-            <Link
-              href="/ranking"
-              className=" mt-5 w-full rounded-sm bg-blue-500 py-2.5 text-center text-lg font-semibold text-white hover:text-zinc-800  hover:bg-zinc-50"
-            >
-              Ranking
-            </Link>
-            </SheetClose>
-          
-          </div>  
-          
+            Ranking
+          </Link>
+          <UserButton afterSignOutUrl="/" />
         </div>
-        
-      
-           <hr className="w-full border-zinc-50" />
-           <div
-            onClick={() => close()}
-            className="order-last flex flex-col items-center gap-4"
-          >
-            <SheetClose asChild>
+        <div className="my-auto ml-auto mr-5 space-x-10 md:hidden">
+          <Sheet>
+            <SheetTrigger asChild>
+              <Menu className="text-neutral-200" />
+            </SheetTrigger>
 
-            
-            <Link
-              href="/ranking"
-              className=" mt-5 w-full rounded-sm bg-blue-500 py-2.5 text-center text-lg font-semibold text-white hover:text-zinc-800  hover:bg-zinc-50"
-            >Log out</Link>
+            <SheetContent className="bg-zinc-800">
+              <SheetHeader>
+                <SheetTitle className=" text-xl text-zinc-50">
+                  Resume Rumble
+                </SheetTitle>
+              </SheetHeader>
 
-            
-            </SheetClose>
-          
-          </div>  
-        
-      </SheetContent>
-    </Sheet>
+              <div className=" h-50 font-karla mt-4 flex  flex-col rounded-full px-4 pb-4 tracking-wider text-zinc-50">
+                <div
+                  onClick={() => close()}
+                  className="flex flex-col items-center gap-4"
+                >
+                  <SheetClose asChild>
+                    <Link
+                      href="/dashboard"
+                      className=" mt-5 w-full rounded-sm bg-blue-500 py-2.5 text-center text-lg font-semibold text-white hover:bg-zinc-50  hover:text-zinc-800"
+                    >
+                      Dashboard
+                    </Link>
+                  </SheetClose>
+                </div>
+                <div
+                  onClick={() => close()}
+                  className="flex flex-col items-center gap-4"
+                >
+                  <SheetClose asChild>
+                    <Link
+                      href="/rating"
+                      className=" mt-5 w-full rounded-sm bg-blue-500 py-2.5 text-center text-lg font-semibold text-white hover:bg-zinc-50  hover:text-zinc-800"
+                    >
+                      Rating
+                    </Link>
+                  </SheetClose>
+                </div>
+                <div
+                  onClick={() => close()}
+                  className="order-last flex flex-col items-center gap-4"
+                >
+                  <SheetClose asChild>
+                    <Link
+                      href="/ranking"
+                      className=" mt-5 w-full rounded-sm bg-blue-500 py-2.5 text-center text-lg font-semibold text-white hover:bg-zinc-50  hover:text-zinc-800"
+                    >
+                      Ranking
+                    </Link>
+                  </SheetClose>
+                </div>
+              </div>
 
+              <hr className="w-full border-zinc-50" />
+              <div
+                onClick={() => close()}
+                className="order-last flex flex-col items-center gap-4"
+              >
+                <SheetClose asChild>
+                  <Link
+                    href="/ranking"
+                    className=" mt-5 w-full rounded-sm bg-blue-500 py-2.5 text-center text-lg font-semibold text-white hover:bg-zinc-50  hover:text-zinc-800"
+                  >
+                    Log out
+                  </Link>
+                </SheetClose>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
-      <CircleDashed
-        className="my-auto mr-5 hidden h-auto w-[5dvh] text-neutral-200 md:block"
-        size={50}
-      />
     </nav>
   );
 };

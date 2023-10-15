@@ -1,11 +1,11 @@
 import Navbar from "@/components/Navbar";
 
-const layout = ({ children }: { children: React.ReactNode }) => {
+const MainLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="h-[90dvh] w-screen bg-zinc-900">
+    <div className="mt-16 bg-zinc-900">
       <Navbar />
       {children}
     </div>
   );
 };
-export default layout;
+export default MainLayout;
