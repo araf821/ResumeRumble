@@ -4,6 +4,8 @@ import { Menu } from "lucide-react";
 import { CircleDashed } from "lucide-react";
 import Link from "next/link";
 
+import { useClerk } from '@clerk/clerk-react';
+
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -22,7 +24,7 @@ let isLoggedin = false
 
 const Navbar = () => {
   const path = usePathname();
-
+  const { user } = useClerk();
   return (
     <nav className="sticky top-0 flex h-[8dvh] bg-zinc-800">
       <Link
@@ -124,12 +126,13 @@ const Navbar = () => {
           >
             <SheetClose asChild>
 
+            
             <Link
               href="/ranking"
               className=" mt-5 w-full rounded-sm bg-blue-500 py-2.5 text-center text-lg font-semibold text-white hover:text-zinc-800  hover:bg-zinc-50"
-            >
-              Ranking
-            </Link>
+            >Log out</Link>
+
+            
             </SheetClose>
           
           </div>  
