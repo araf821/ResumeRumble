@@ -4,9 +4,13 @@ import Link from "next/link";
 const LobbyItem = ({
   name = "Unnamed Lobby",
   url = "#",
+  current = 0,
+  max = 0,
 }: {
   name?: string;
   url?: string;
+  current?: number;
+  max?: number;
 }) => {
   return (
     // show user count/limit
@@ -15,6 +19,9 @@ const LobbyItem = ({
       <div className="flex overflow-clip rounded-xl border border-neutral-200 bg-zinc-800 px-5 py-5">
         <p className="my-auto overflow-hidden overflow-ellipsis whitespace-nowrap font-bold text-neutral-200">
           {name}
+        </p>
+        <p className="ml-2 whitespace-nowrap text-blue-500">
+          {current}/{max}
         </p>
 
         <Link className="my-auto ml-auto flex" href={url}>
