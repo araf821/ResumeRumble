@@ -6,7 +6,7 @@ export async function POST(req: Request) {
   try {
     const user = await getCurrentUser();
 
-    const { fileUrl, fileKey, name } = await req.json();
+    const { fileKey, name } = await req.json();
 
     if (!user) {
       return new NextResponse("Unauthorized", { status: 401 });
@@ -14,7 +14,7 @@ export async function POST(req: Request) {
 
     const file = await db.file.create({
       data: {
-        fileUrl,
+        fileUrl: `https://uploadthing-prod.s3.us-west-2.amazonaws.com/${fileKey}`,
         fileKey,
         name,
         userId: user.userId,
