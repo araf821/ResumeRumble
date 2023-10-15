@@ -4,8 +4,9 @@ import { Courier_Prime } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import Providers from "@/components/Providers";
 import { Toaster } from "@/components/ui/toaster";
+import ModalProvider from "@/components/modals/ModalProvider";
 
-const courier = Courier_Prime({ weight: "400", subsets: ["latin"] });
+const courier = Courier_Prime({ weight: ["400", "700"], subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Resume Rumble",
@@ -22,6 +23,7 @@ export default function RootLayout({
       <html lang="en">
         <Providers>
           <body className={courier.className}>
+            <ModalProvider />
             <Toaster />
             {children}
           </body>

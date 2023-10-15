@@ -6,7 +6,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <h1 className="overflow-clip whitespace-nowrap text-xl font-bold">
             Resume rating
           </h1>
-          <h2 className="text-lg">Get your resume rated!</h2>
+          <h2 className="text-lg">Get your resume ranked!</h2>
         </div>
         {children}
       </div>

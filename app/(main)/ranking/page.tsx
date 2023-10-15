@@ -1,4 +1,6 @@
 import LobbyItem from "@/components/LobbyItem";
+import Link from "next/link";
+import { Plus } from "lucide-react";
 
 const lobbyData = [
   { name: "Lobby 1" },
@@ -20,10 +22,16 @@ const lobbyData = [
 
 const RankingPage = () => {
   return (
-    <div className="h-[60dvh] overflow-y-scroll">
+    <div className="h-[60dvh] overflow-y-scroll rounded-xl bg-zinc-800 p-5 pt-2">
       {lobbyData.map((data, index) => (
         <LobbyItem key={index} name={data.name}></LobbyItem>
       ))}
+      <Link
+        className="grid h-28 content-center justify-items-center rounded-xl border border-neutral-200 bg-zinc-800 px-5 py-5"
+        href="#"
+      >
+        <Plus className="text-neutral-200" />
+      </Link>
     </div>
   );
 };
