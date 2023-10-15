@@ -1,10 +1,8 @@
 import { create } from "zustand";
 
-export type ModalType = "addFile"
+export type ModalType = "addFile" | "createRoom";
 
-interface ModalData {
-  
-}
+interface ModalData {}
 
 interface ModalStoreProps {
   type: ModalType | null;

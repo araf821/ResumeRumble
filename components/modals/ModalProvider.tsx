@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import FileUploadModal from "./FileUploadModal";
+import CreateRoomModal from "./CreateRoomModal";
 
 const ModalProvider = ({}) => {
   const [isMounted, setIsMounted] = useState(false);
@@ -17,6 +18,7 @@ const ModalProvider = ({}) => {
   return (
     <>
       <FileUploadModal />
+      <CreateRoomModal />
     </>
   );
 };
