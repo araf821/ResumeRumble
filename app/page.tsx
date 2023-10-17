@@ -84,7 +84,7 @@ export default function Home() {
         </motion.div>
 
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <div className="mx-auto grid max-w-screen-sm grid-cols-1 gap-2 md:grid-cols-2 md:gap-7">
+          <div className="mx-auto grid max-w-screen-sm grid-cols-1 gap-2 md:grid-cols-2 md:gap-8 gap-4">
             <motion.div
               initial={{ scale: 0 }}
               whileInView={{
@@ -94,7 +94,7 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <SignInButton>
-                <Button className="w-full border-2 border-blue-500 bg-transparent py-8 text-xl font-bold text-blue-500 outline-none transition-all duration-200 hover:bg-blue-500 hover:text-white">
+                <Button className="w-full border-2 border-blue-500 bg-transparent py-8 text-xl font-bold text-blue-500 outline-none hover:outline hover:outline-offset-4 hover:outline-blue-500 transition-all duration-100 ">
                   Sign In
                 </Button>
               </SignInButton>

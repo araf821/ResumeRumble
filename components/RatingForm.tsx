@@ -140,7 +140,7 @@ const RatingForm: FC<RatingFormProps> = ({ files }) => {
               size="lg"
               type="submit"
               disabled={isLoading}
-              className="w-full bg-gradient-to-r from-sky-500 via-cyan-600 to-blue-600 py-8 text-xl md:text-2xl"
+              className="w-full bg-gradient-to-r from-emerald-500 to-lime-600 py-8 text-xl md:text-2xl"
             >
               {isLoading ? (
                 <p className="flex items-center gap-2">
@@ -156,7 +156,7 @@ const RatingForm: FC<RatingFormProps> = ({ files }) => {
 
       <div className="mx-auto mt-8 w-full max-w-screen-sm bg-zinc-800 p-4">
         <p className="text-center text-2xl md:text-3xl">Results</p>
-        <hr className="mx-auto mt-2 w-14 border-4 border-amber-600" />
+        <hr className="mx-auto mt-2 w-14 border-4 border-green-500" />
 
         {isLoading ? (
           <Loader2 className="mx-auto my-14 h-7 w-7 animate-spin text-white" />

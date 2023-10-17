@@ -35,10 +35,10 @@ const formSchema = z.object({
   jobDescription: z.string().optional(),
   capacity: z
     .string()
-    .refine((value) => !isNaN(parseFloat(value)), {
+    .refine((value) => !isNaN(parseInt(value)), {
       message: "Capacity must be a valid number.",
     })
-    .transform((value) => parseFloat(value)),
+    .transform((value) => parseInt(value)),
 });
 
 const CreateRoomModal: FC<CreateRoomModalProps> = () => {

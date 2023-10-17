@@ -29,7 +29,7 @@ const Navbar = () => {
             className={cn(
               "rounded-md bg-zinc-800 px-2.5 py-1 text-lg text-neutral-200 transition hover:bg-zinc-700",
               {
-                "bg-[conic-gradient(at_left,_var(--tw-gradient-stops))] from-sky-400 to-blue-800 hover:bg-[conic-gradient(at_left,_var(--tw-gradient-stops))]":
+                "bg-gradient-to-r text-black from-cyan-200 to-cyan-400 hover:bg-[conic-gradient(at_left,_var(--tw-gradient-stops))]":
                   pathname === "/dashboard",
               },
             )}
@@ -41,7 +41,7 @@ const Navbar = () => {
             className={cn(
               "rounded-md bg-zinc-800 px-2.5 py-1 text-lg text-neutral-200 transition hover:bg-zinc-700",
               {
-                "bg-gradient-to-r from-purple-600 via-blue-500 to-green-300 hover:bg-gradient-to-r":
+                "bg-gradient-to-r from-emerald-500 to-lime-600 hover:bg-gradient-to-r":
                   pathname === "/rating",
               },
             )}

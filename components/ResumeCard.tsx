@@ -55,7 +55,7 @@ function ResumeCard({ file }: { file: File }) {
     onSuccess: () => {
       router.refresh();
       toast({
-        title: "Post deleted successfully!",
+        title: "File deleted successfully!",
       });
     },
     onError: () => {
@@ -70,7 +70,10 @@ function ResumeCard({ file }: { file: File }) {
     <div
       className={cn(
         "resume-card flex flex-col overflow-hidden rounded-md border border-zinc-700 bg-transparent px-5 py-5",
-        { "border-2 border-white": file.isDefault },
+        {
+          "border-2 border-zinc-500 shadow-[0_0_20px_2px] shadow-sky-400/40":
+            file.isDefault,
+        },
       )}
     >
       <p className="break-words text-xl text-neutral-200">{file.name}</p>
