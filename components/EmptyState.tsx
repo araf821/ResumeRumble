@@ -16,10 +16,10 @@ const EmptyState: FC<EmptyStateProps> = ({
 }) => {
   if (!children) {
     return (
-      <section className="mx-auto flex h-[90dvh] w-full max-w-screen-md flex-col items-center justify-center gap-6">
+      <section className="mx-auto px-4 flex h-[90dvh] w-full max-w-screen-md text-center flex-col items-center justify-center gap-8">
         <p className="break-words text-4xl md:text-5xl">{title}</p>
-        {!description && (
-          <p className="break-words text-zinc-400">description goes here</p>
+        {description && (
+          <p className="break-words text-zinc-400">{description}</p>
         )}
         <Link
           href={link ? link : "/"}

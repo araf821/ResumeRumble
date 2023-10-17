@@ -1,5 +1,3 @@
-import { Button } from "@/components/ui/button";
-import { getCurrentUser } from "@/lib/getCurrentUser";
 import UserRoomsSidebar from "@/components/UserRoomsSidebar";
 import { db } from "@/lib/db";
 import { auth } from "@clerk/nextjs";

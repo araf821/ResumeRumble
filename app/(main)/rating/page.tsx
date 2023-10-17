@@ -1,5 +1,3 @@
-import Loading from "@/app/loading";
-import EmptyState from "@/components/EmptyState";
 import RatingForm from "@/components/RatingForm";
 import RedirectWithToast from "@/components/RedirectWithToast";
 import { db } from "@/lib/db";

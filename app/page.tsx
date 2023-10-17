@@ -2,14 +2,8 @@
 
 import { Button } from "@/components/ui/button";
 import { SignInButton, useAuth } from "@clerk/nextjs";
-import { redirect, useRouter } from "next/navigation";
+import { redirect } from "next/navigation";
 import { motion } from "framer-motion";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import FeatureSection from "@/components/landing/FeatureSection";
 
 export default function Home() {
