@@ -12,9 +12,10 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen w-full bg-[radial-gradient(ellipse_at_right,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black">
-      <div className="mx-auto max-w-screen-xl px-4 2xl:px-0 ">
+      <div className="mx-auto max-w-screen-xl px-4">
         <LandingPageClient />
         <FeatureSection />
+          <p className="text-neutral-200 text-center py-8">Made for HTV8 🍌</p>
       </div>
     </main>
   );

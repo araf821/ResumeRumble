@@ -17,9 +17,9 @@ const FeatureSection: FC<FeatureSectionProps> = ({}) => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
-      className="rounded-md bg-zinc-800/40"
+      className="rounded-md pt-12 pb-8 mb-8 bg-zinc-800/40"
     >
-      <h1 className="pt-10 text-center text-5xl text-cyan-100">Features</h1>
+      <h1 className="text-center text-5xl text-cyan-100">Features</h1>
       <div className="mx-8 mt-10 grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-5">
         <Accordion
           type="single"
@@ -32,12 +32,12 @@ const FeatureSection: FC<FeatureSectionProps> = ({}) => {
                 <h1 className="overflow-clip whitespace-nowrap text-left text-xl font-bold">
                   Resume Rating
                 </h1>
-                <h2 className="text-left text-lg">Get your resume ranked!</h2>
+                <h2 className="text-left text-lg">Get your resume rated!</h2>
               </div>
             </AccordionTrigger>
             <AccordionContent>
               <p className="flex flex-col gap-6 text-xl font-light text-zinc-800">
-                Get your resume rated out of 100!
+                Get a score out of 100 for your resume!
                 <p className="">
                   ResumeRumble uses OpenAI to score the quality of your resume.
                   Scoring can be done on the general quality of your resume, or
@@ -75,9 +75,6 @@ const FeatureSection: FC<FeatureSectionProps> = ({}) => {
             </AccordionContent>
           </AccordionItem>
         </Accordion>
-      </div>
-      <div className="grid h-20 w-full place-content-center justify-center bg-black">
-        <p className="text-neutral-200">Made for HTV8 ❤️</p>
       </div>
     </motion.div>
   );

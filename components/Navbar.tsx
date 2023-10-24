@@ -76,53 +76,51 @@ const Navbar = () => {
               <SheetTitle className="text-xl text-zinc-50">
                 Resume Rumble
               </SheetTitle>
-              <SheetClose>
-                <X className="my-auto -mt-2 h-5 w-5" />
+              <SheetClose className="absolute top-5 right-6">
+                <X className="my-auto h-5 w-5" />
                 <span className="sr-only">Close</span>
               </SheetClose>
             </SheetHeader>
             <hr className="mt-4 border-zinc-700" />
 
-            <div className="flex h-[90dvh] flex-col justify-between">
-              <div className="font-karla mt-4 flex flex-col rounded-full tracking-wider text-zinc-50">
-                <SheetClose asChild>
-                  <Link
-                    href="/dashboard"
-                    className="mt-5 w-full rounded-sm bg-gradient-to-r from-blue-400 to-cyan-600 py-2.5 text-center text-lg text-white transition hover:-translate-y-1 active:translate-y-2"
-                  >
-                    Dashboard
-                  </Link>
-                </SheetClose>
-
-                <SheetClose asChild>
-                  <Link
-                    href="/rating"
-                    className="mt-5 w-full rounded-sm bg-blue-500 bg-gradient-to-r from-emerald-500 to-lime-600 py-2.5 text-center text-lg text-white transition hover:-translate-y-1  active:translate-y-2"
-                  >
-                    Rating
-                  </Link>
-                </SheetClose>
-
-                <SheetClose asChild>
-                  <Link
-                    href="/ranking"
-                    className="mt-5 w-full rounded-sm bg-blue-500 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 py-2.5 text-center text-lg text-white transition hover:-translate-y-1  active:translate-y-2"
-                  >
-                    Ranking
-                  </Link>
-                </SheetClose>
-                <hr className="mb-4 mt-8 border-zinc-700" />
-              </div>
+            <div className="font-karla mt-4 flex flex-col rounded-full tracking-wider text-zinc-50">
+              <SheetClose asChild>
+                <Link
+                  href="/dashboard"
+                  className="mt-5 w-full rounded-sm bg-gradient-to-r from-blue-400 to-cyan-600 py-2.5 text-center text-lg text-white transition hover:-translate-y-1 active:translate-y-2"
+                >
+                  Dashboard
+                </Link>
+              </SheetClose>
 
               <SheetClose asChild>
-                <Button
-                  onClick={() => signOut(() => router.push("/"))}
-                  className="rounded-md border-2 border-blue-500 bg-transparent py-2.5 text-center text-xl font-bold text-blue-500 transition hover:bg-blue-500 hover:text-white "
+                <Link
+                  href="/rating"
+                  className="mt-5 w-full rounded-sm bg-blue-500 bg-gradient-to-r from-emerald-500 to-lime-600 py-2.5 text-center text-lg text-white transition hover:-translate-y-1  active:translate-y-2"
                 >
-                  Sign Out
-                </Button>
+                  Rating
+                </Link>
               </SheetClose>
+
+              <SheetClose asChild>
+                <Link
+                  href="/ranking"
+                  className="mt-5 w-full rounded-sm bg-blue-500 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 py-2.5 text-center text-lg text-white transition hover:-translate-y-1  active:translate-y-2"
+                >
+                  Ranking
+                </Link>
+              </SheetClose>
+              <hr className="mb-4 mt-8 border-zinc-700" />
             </div>
+
+            <SheetClose asChild>
+              <Button
+                onClick={() => signOut(() => router.push("/"))}
+                className="w-full rounded-md border-2 border-blue-500 bg-transparent py-4 text-center text-xl font-bold text-blue-500 transition hover:bg-blue-500 hover:text-white "
+              >
+                Sign Out
+              </Button>
+            </SheetClose>
           </SheetContent>
         </Sheet>
       </div>
