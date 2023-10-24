@@ -4,7 +4,6 @@ import { db } from "./db";
 export const initializeUser = async () => {
   const user = await currentUser();
   const { userId } = auth();
-  console.log(userId, user);
 
   if (!userId) {
     return null;

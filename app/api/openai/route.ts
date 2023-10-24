@@ -56,7 +56,5 @@ export const POST = async (req: Request) => {
     ],
   });
 
-  console.log(response);
-
   return NextResponse.json(response.choices[0].message);
 };
