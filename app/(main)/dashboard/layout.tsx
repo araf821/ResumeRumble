@@ -1,19 +1,17 @@
 import DashboardSidebar from "@/components/DashboardSidebar";
-import { getCurrentUser } from "@/lib/getCurrentUser";
 import { redirect } from "next/navigation";
-import { initializeUser } from "@/lib/initializeUser";
+import { getCurrentUser } from "@/lib/getCurrentUser";
 
 const DashBoardLayout = async ({ children }: { children: React.ReactNode }) => {
-  await initializeUser();
   const user = await getCurrentUser();
-
+  
   if (!user) {
     redirect("/");
   }
 
   return (
     <div className="mx-auto max-w-screen-xl px-4 py-8 2xl:px-0">
-      <div className="mb-8 rounded-xl bg-gradient-to-r from-cyan-200 to-cyan-400 text-black p-5">
+      <div className="mb-8 rounded-xl bg-gradient-to-r from-cyan-200 to-cyan-400 p-5 text-black">
         <h1 className="text-xl font-bold md:text-2xl">
           Hello, {user.name.split(" ")[0]}!
         </h1>

@@ -1,29 +1,33 @@
-import { currentUser } from "@clerk/nextjs";
+import { auth, currentUser } from "@clerk/nextjs";
 import { db } from "./db";
 
 export const initializeUser = async () => {
-  const authorizedUser = await currentUser();
+  const user = await currentUser();
+  const { userId } = auth();
+  console.log(userId, user);
 
-  if (!authorizedUser) {
-    return;
+  if (!userId) {
+    return null;
   }
 
-  const user = await db.user.findUnique({
+  const existingUser = await db.user.findUnique({
     where: {
-      userId: authorizedUser.id,
+      userId,
     },
   });
 
-  if (user) {
-    return user;
-  }
+  if (existingUser) return existingUser;
+
+  if (!user) return null;
 
   const newUser = await db.user.create({
     data: {
-      userId: authorizedUser.id,
-      name: `${authorizedUser.firstName} ${authorizedUser.lastName}`,
-      imageUrl: authorizedUser.imageUrl,
-      email: authorizedUser.emailAddresses[0].emailAddress,
+      userId: userId,
+      name: `${user.firstName} ${user.lastName}`,
+      imageUrl:
+        user.imageUrl ??
+        "https://t3.ftcdn.net/jpg/05/16/27/58/360_F_516275801_f3Fsp17x6HQK0xQgDQEELoTuERO4SsWV.jpg",
+      email: user.emailAddresses[0].emailAddress,
     },
   });
 

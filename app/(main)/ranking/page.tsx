@@ -1,6 +1,5 @@
 import RoomsList from "@/components/RoomsList";
 import { db } from "@/lib/db";
-import { ArrowRight } from "lucide-react";
 
 const RankingPage = async () => {
   const rooms = await db.room.findMany();
