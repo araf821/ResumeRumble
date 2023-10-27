@@ -21,6 +21,7 @@ import axios from "axios";
 import qs from "query-string";
 import { Loader2 } from "lucide-react";
 import { Inter } from "next/font/google";
+import { result } from "./ResumeRating";
 
 interface RatingFormProps {
   files: File[];
@@ -35,8 +36,7 @@ const formSchema = z.object({
 
 const RatingForm: FC<RatingFormProps> = ({ files }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [results, setResults] = useState<string | null>(null);
-  const resultsRef = useRef<null | HTMLDivElement>(null);
+  const [results, setResults] = useState<result | null>(null);
   const { toast } = useToast();
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -59,10 +59,10 @@ const RatingForm: FC<RatingFormProps> = ({ files }) => {
       });
 
       const response = await axios.post(url);
-      setResults(response.data.content);
+      console.log(response);
+
+      setResults(JSON.parse(response.data));
       toast({ title: "Results are now out!" });
-      // if (resultsRef.current)
-      //   resultsRef.current.scrollIntoView({ behavior: 'smooth' });
       window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
     } catch (error) {
       console.log("\n\n\nERROR\n\n\n", error);
@@ -161,10 +161,29 @@ const RatingForm: FC<RatingFormProps> = ({ files }) => {
         {isLoading ? (
           <Loader2 className="mx-auto my-14 h-7 w-7 animate-spin text-white" />
         ) : results ? (
-          <div
-            className={`${inter.className} whitespace-pre-line py-4 font-sans text-lg text-zinc-300`}
-          >
-            {results}
+          <div className="flex flex-col gap-4">
+            <div
+              className={`${inter.className} space-y-4 whitespace-pre-line py-4 font-sans text-lg text-zinc-300`}
+            >
+              <p>
+                <span className="mr-2 rounded-md bg-green-500 px-2 py-1 font-semibold text-black">
+                  Score
+                </span>
+                {results.score}
+              </p>
+              <p>
+                <span className="mr-2 rounded-md bg-green-500 px-2 py-1 font-semibold text-black">
+                  Good
+                </span>
+                {results.pros}
+              </p>
+              <p>
+                <span className="mr-2 rounded-md bg-green-500 px-2 py-1 font-semibold text-black">
+                  Bad
+                </span>
+                {results.cons}
+              </p>
+            </div>
           </div>
         ) : (
           <p className="py-12 text-center text-zinc-400">
